@@ -1,0 +1,682 @@
+/* =========================================
+   1. VARIABLES & THEME SETUP
+   ========================================= */
+/* ================= CUSTOM SCROLLBAR ================= */
+/* Width of the scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* The "Track" (background) */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* The "Thumb" (the moving part) */
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1; /* Light Grey by default */
+  border-radius: 10px;
+  border: 2px solid transparent; /* Creates padding around the bar */
+  background-clip: content-box;
+}
+
+/* Hover effect */
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Dark Mode Adaptation */
+body.dark ::-webkit-scrollbar-thumb {
+  background: #334155; /* Darker grey for dark mode */
+}
+body.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--accent); /* Glow blue when hovered in dark mode */
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Prevents navbar from covering the section title */
+}
+   :root {
+  --bg: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --accent: #2563eb;       /* Bright Blue */
+  --accent-glow: #dbeffe;  /* Light Blue for blobs */
+  --card: #f9fafb;
+  --border: #e5e7eb;
+}
+
+body.dark {
+  --bg: #0b1220;           /* Deep Navy */
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #60a5fa;       /* Lighter Blue for dark mode */
+  --accent-glow: #1e1b4b;  /* Dark Blue for blobs */
+  --card: #111827;
+  --border: #1f2937;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevents horizontal scroll */
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* =========================================
+   2. NAVBAR
+   ========================================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+body.dark .navbar {
+  background: rgba(11, 18, 32, 0.85);
+}
+
+.nav-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.logo img {
+  width: 32px;
+  height: 32px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--accent);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+body.dark .theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile Menu Button */
+.menu-btn {
+  display: none; /* Hidden on desktop */
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.mobile-menu.show {
+  display: flex;
+}
+
+.mobile-menu a {
+  padding: 16px 20px;
+  text-decoration: none;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+}
+
+/* =========================================
+   3. HERO SECTION (With Flower Blob)
+   ========================================= */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh; /* Full screen height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+  overflow: hidden;
+}
+
+.hero-center {
+  max-width: 800px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.hero h1 span {
+  color: var(--accent);
+}
+
+.hero p {
+  font-size: 1.15rem;
+  color: var(--muted);
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+  line-height: 1.6;
+}
+
+/* --- THE FLOWER BLOB ANIMATION --- */
+.hero-text {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+.hero-text::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 160%;  /* Size of the glow */
+  height: 160%;
+  z-index: -1;
+  
+  /* Gradient Colors */
+background: linear-gradient(120deg, #60a5fa 0%, #a78bfa 50%, #3b82f6 100%);  
+  /* Shape & Blur */
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  filter: blur(50px);
+  opacity: 0.25;
+  
+  /* Animation */
+  animation: flowerWave 8s ease-in-out infinite alternate;
+}
+body.dark .hero-text::before {
+  background: linear-gradient(120deg, #1e1b4b 0%, #312e81 50%, #1e3a8a 100%);
+  opacity: 0.6;
+  filter: blur(50px);
+}
+
+@keyframes flowerWave {
+  0% {
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  }
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: translate(-50%, -50%) rotate(15deg) scale(1.1);
+  }
+}
+
+/* =========================================
+   4. BUTTONS
+   ========================================= */
+.hero-links {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  position: relative;
+  z-index: 10;      
+  margin-top: 30px;
+
+}
+.hero-links a {
+  opacity: 1 !important;      
+  visibility: visible !important;
+  transform: none !important;  /* Resets any weird positions */
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+}
+
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+
+.btn.outline {
+  background: transparent;
+  color: var(--accent);
+  border: 1.5px solid var(--accent);
+}
+
+.btn.outline:hover {
+  background: var(--accent);
+  color: white;
+}
+
+/* =========================================
+   5. SECTIONS (About, Projects, Skills)
+   ========================================= */
+.section {
+  padding: 100px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.section-desc {
+  text-align: center;
+  color: var(--muted);
+  margin-bottom: 50px;
+  font-size: 1.1rem;
+}
+
+/* --- ABOUT SECTION --- */
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.typewriter {
+  color: var(--accent);
+  min-height: 1.5em;
+}
+
+/* --- PROJECTS (Horizontal Scroll) --- */
+.project-scroll {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  padding-bottom: 30px; /* Space for shadow */
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.project-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+.project-scroll::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 4px;
+}
+
+.project-card {
+  min-width: 300px;
+  max-width: 300px;
+  background: var(--card);
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  scroll-snap-align: center;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.project-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.25rem;
+}
+
+.project-card span {
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* --- SKILLS GRID --- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.skill-box {
+  background: var(--card);
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  text-align: center;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.skill-box:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+}
+
+.skill-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.skill-sub {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* =========================================
+   6. CONTACT
+   ========================================= */
+.contact-section {
+  text-align: center;
+}
+
+.contact-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.contact-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* =========================================
+   7. FOOTER (Compact & Fixed)
+   ========================================= */
+/* ================= FOOTER (High Contrast Flip) ================= */
+
+/* 1. DEFAULT (Light Mode) -> Dark Footer */
+.footer {
+  background-color: #0f172a; /* Dark Navy BG */
+  color: #cbd5e1;            /* Light Gray Text */
+  padding: 2rem 2rem 1rem 2rem;
+  margin-top: 80px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 2. DARK MODE -> White Footer (The Flip) */
+body.dark .footer {
+  background-color: #ffffff; /* Bright White BG */
+  color: #0f172a;            /* Dark Navy Text */
+  border-top: 1px solid #e2e8f0;
+}
+
+/* --- HEADINGS --- */
+/* Default (Light Mode) */
+.footer-brand h3, .footer-col h4 {
+  color: #ffffff; /* White text on Dark BG */
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+/* Dark Mode Override (CRITICAL FIX) */
+body.dark .footer-brand h3, 
+body.dark .footer-col h4 {
+  color: #0f172a; /* Dark text on White BG */
+}
+
+/* --- LINKS --- */
+/* Default */
+.footer-col a {
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+/* Dark Mode Override */
+body.dark .footer-col a {
+  color: #475569; /* Dark Grey links */
+}
+
+/* Hover is same for both */
+.footer-col a:hover {
+  color: #3b82f6;
+}
+
+/* --- LAYOUT & SPACING --- */
+.footer-content {
+  max-width: 1100px;
+  margin: 0 auto 1.5rem auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Fix border color in Dark Mode */
+body.dark .footer-content {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* --- BRAND & LISTS --- */
+.footer-links-group {
+  display: flex;
+  gap: 40px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col li {
+  margin-bottom: 8px;
+}
+
+/* --- BOTTOM BAR (Centered to fix Resume Button overlap) --- */
+.footer-bottom {
+  display: flex;
+  justify-content: center; /* Keeps it in the middle, away from the button */
+  align-items: center;
+  gap: 24px;
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+.back-to-top {
+  background: rgba(255,255,255,0.05);
+  color: #3b82f6;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.back-to-top:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Dark Mode Back-to-Top */
+body.dark .back-to-top {
+  background: #f1f5f9; /* Light grey bg */
+}
+body.dark .back-to-top:hover {
+  background: #e2e8f0;
+}/* =========================================
+   8. MODALS & FLOATING BUTTONS
+   ========================================= */
+/* Floating Resume Button */
+.resume-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--accent);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+  z-index: 2000; /* Highest priority */
+  transition: transform 0.3s ease;
+}
+
+.resume-float:hover {
+  transform: translateY(-4px);
+}
+
+/* Modals */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 3000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-content {
+  background: var(--bg);
+  width: 100%;
+  max-width: 500px;
+  padding: 30px;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+  border: 1px solid var(--border);
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--muted);
+}
+
+.modal-content img {
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  object-fit: cover;
+}
+
+/* Formatting for modal text (Bullet points) */
+#modalDesc, #skillDesc {
+  white-space: pre-line;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+/* =========================================
+   9. MOBILE RESPONSIVENESS
+   ========================================= */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .menu-btn { display: block; }
+  
+  .hero h1 { font-size: 2.2rem; }
+  
+  .about-container { grid-template-columns: 1fr; text-align: center; }
+  .about-image img { margin: 0 auto; }
+  
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .footer-links-group {
+    gap: 30px;
+    text-align: left;
+  }
+  
+  /* Make room for the floating button on mobile */
+  .footer { padding-bottom: 80px; }
+}
