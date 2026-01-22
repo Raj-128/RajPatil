@@ -1,78 +1,89 @@
 /* =========================================
-   1. VARIABLES & THEME SETUP
+   Root Variables and Theme
    ========================================= */
-/* ================= CUSTOM SCROLLBAR ================= */
-/* Width of the scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* The "Track" (background) */
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-/* The "Thumb" (the moving part) */
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1; /* Light Grey by default */
-  border-radius: 10px;
-  border: 2px solid transparent; /* Creates padding around the bar */
-  background-clip: content-box;
-}
-
-/* Hover effect */
-::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
-}
-
-/* Dark Mode Adaptation */
-body.dark ::-webkit-scrollbar-thumb {
-  background: #334155; /* Darker grey for dark mode */
-}
-body.dark ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent); /* Glow blue when hovered in dark mode */
-}
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px; /* Prevents navbar from covering the section title */
-}
-   :root {
+ 
+:root {
   --bg: #ffffff;
   --text: #111827;
   --muted: #6b7280;
-  --accent: #2563eb;       /* Bright Blue */
-  --accent-glow: #dbeffe;  /* Light Blue for blobs */
+  --accent: #2563eb;
+  --accent-glow: #dbeffe;
   --card: #f9fafb;
   --border: #e5e7eb;
 }
 
 body.dark {
-  --bg: #0b1220;           /* Deep Navy */
+  --bg: #0b1220;
   --text: #e5e7eb;
   --muted: #9ca3af;
-  --accent: #60a5fa;       /* Lighter Blue for dark mode */
-  --accent-glow: #1e1b4b;  /* Dark Blue for blobs */
+  --accent: #60a5fa;
+  --accent-glow: #1e1b4b;
   --card: #111827;
   --border: #1f2937;
 }
+
+/* =========================================
+   Global Reset & HTML
+   ========================================= */
 
 * {
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/*==========================================
+   Gloabal Body
+   =========================================*/
+
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Prevents horizontal scroll */
-  background: var(--bg);
+  overflow-x: hidden;
   color: var(--text);
+
+  background:
+    radial-gradient(circle at top left, rgba(29,191,115,0.06), transparent 40%),
+    radial-gradient(circle at bottom right, rgba(0,0,0,0.05), transparent 40%),
+    var(--bg);
+
   transition: background 0.3s ease, color 0.3s ease;
 }
 
+#code-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/*=========================================
+   Custom Scrollbar
+   =========================================*/
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+body.dark ::-webkit-scrollbar-thumb { background: #334155; }
+body.dark ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
 /* =========================================
-   2. NAVBAR
+   NAVBAR
    ========================================= */
+
 .navbar {
   position: fixed;
   top: 0;
@@ -180,8 +191,9 @@ body.dark .theme-toggle:hover {
 }
 
 /* =========================================
-   3. HERO SECTION (With Flower Blob)
+   Hero Section
    ========================================= */
+
 .hero {
   position: relative;
   width: 100%;
@@ -226,46 +238,8 @@ body.dark .theme-toggle:hover {
   display: inline-block;
   z-index: 1;
 }
-
-.hero-text::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 160%;  /* Size of the glow */
-  height: 160%;
-  z-index: -1;
-  
-  /* Gradient Colors */
-background: linear-gradient(120deg, #60a5fa 0%, #a78bfa 50%, #3b82f6 100%);  
-  /* Shape & Blur */
-  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-  filter: blur(50px);
-  opacity: 0.25;
-  
-  /* Animation */
-  animation: flowerWave 8s ease-in-out infinite alternate;
-}
-body.dark .hero-text::before {
-  background: linear-gradient(120deg, #1e1b4b 0%, #312e81 50%, #1e3a8a 100%);
-  opacity: 0.6;
-  filter: blur(50px);
-}
-
-@keyframes flowerWave {
-  0% {
-    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-    transform: translate(-50%, -50%) rotate(0deg) scale(1);
-  }
-  100% {
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    transform: translate(-50%, -50%) rotate(15deg) scale(1.1);
-  }
-}
-
 /* =========================================
-   4. BUTTONS
+    Buttons
    ========================================= */
 .hero-links {
   display: flex;
@@ -317,12 +291,21 @@ body.dark .hero-text::before {
 }
 
 /* =========================================
-   5. SECTIONS (About, Projects, Skills)
+   SECTIONS (About, Projects, Skills)
    ========================================= */
 .section {
   padding: 100px 20px;
   max-width: 1100px;
   margin: auto;
+  background: transparent;
+}
+.section-alt {
+  background: rgba(37, 99, 235, 0.03); /* subtle blue tint */
+  border-radius: 32px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 60px;
+  margin-bottom: 60px;
 }
 
 .section h2 {
@@ -385,7 +368,9 @@ body.dark .hero-text::before {
   border: 1px solid var(--border);
   cursor: pointer;
   scroll-snap-align: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease,
+    filter 0.4s ease,
+    opacity 0.4s ease;
 }
 
 .project-card:hover {
@@ -446,7 +431,7 @@ body.dark .hero-text::before {
 }
 
 /* =========================================
-   6. CONTACT
+    CONTACT
    ========================================= */
 .contact-section {
   text-align: center;
@@ -467,17 +452,20 @@ body.dark .hero-text::before {
 }
 
 /* =========================================
-   7. FOOTER (Compact & Fixed)
+    FOOTER 
    ========================================= */
-/* ================= FOOTER (High Contrast Flip) ================= */
 
 /* 1. DEFAULT (Light Mode) -> Dark Footer */
 .footer {
-  background-color: #0f172a; /* Dark Navy BG */
-  color: #cbd5e1;            /* Light Gray Text */
-  padding: 2rem 2rem 1rem 2rem;
-  margin-top: 80px;
-  font-size: 0.9rem;
+  background-color: #0f172a;
+  color: #cbd5e1;
+
+  padding:16px 24px; /* 🔥 reduced height */
+  margin-top: 40px;
+
+  font-size: 0.85rem; 
+  line-height: 1.4;
+  min-height: unset;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -490,11 +478,17 @@ body.dark .footer {
 
 /* --- HEADINGS --- */
 /* Default (Light Mode) */
-.footer-brand h3, .footer-col h4 {
-  color: #ffffff; /* White text on Dark BG */
-  margin-bottom: 12px;
-  font-weight: 700;
+.footer-brand h3,
+.footer-col h4 {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
 }
+.footer-brand p {
+  margin: 4px 0;               /* 🔥 removes tall gaps */
+  max-width: 380px;
+}
+
 
 /* Dark Mode Override (CRITICAL FIX) */
 body.dark .footer-brand h3, 
@@ -523,13 +517,16 @@ body.dark .footer-col a {
 /* --- LAYOUT & SPACING --- */
 .footer-content {
   max-width: 1100px;
-  margin: 0 auto 1.5rem auto;
+  margin: 0 auto;
+
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  padding-bottom: 8px;         /* 🔥 reduced */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
+
 
 /* Fix border color in Dark Mode */
 body.dark .footer-content {
@@ -539,8 +536,9 @@ body.dark .footer-content {
 /* --- BRAND & LISTS --- */
 .footer-links-group {
   display: flex;
-  gap: 40px;
+  gap: 28px; /* 🔥 was too wide */
 }
+
 
 .footer-col ul {
   list-style: none;
@@ -549,17 +547,20 @@ body.dark .footer-content {
 }
 
 .footer-col li {
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 /* --- BOTTOM BAR (Centered to fix Resume Button overlap) --- */
 .footer-bottom {
   display: flex;
-  justify-content: center; /* Keeps it in the middle, away from the button */
+  justify-content: center;
   align-items: center;
-  gap: 24px;
+
+  gap: 12px;
+  margin-top: 6px;             /* 🔥 very small */
+
+  font-size: 0.75rem;
   color: #64748b;
-  font-size: 0.85rem;
 }
 
 .back-to-top {
@@ -583,7 +584,7 @@ body.dark .back-to-top {
 body.dark .back-to-top:hover {
   background: #e2e8f0;
 }/* =========================================
-   8. MODALS & FLOATING BUTTONS
+    MODALS & FLOATING BUTTONS
    ========================================= */
 /* Floating Resume Button */
 .resume-float {
@@ -654,7 +655,7 @@ body.dark .back-to-top:hover {
 }
 
 /* =========================================
-   9. MOBILE RESPONSIVENESS
+   MOBILE RESPONSIVENESS
    ========================================= */
 @media (max-width: 768px) {
   .nav-links { display: none; }
@@ -664,19 +665,22 @@ body.dark .back-to-top:hover {
   
   .about-container { grid-template-columns: 1fr; text-align: center; }
   .about-image img { margin: 0 auto; }
-  
+  .footer{
+    padding: 14px 16px;
+  }
   .footer-content {
     flex-direction: column;
-    text-align: center;
+    text-align: left;
     align-items: center;
-    gap: 30px;
+    gap: 12px;
   }
   
   .footer-links-group {
     gap: 30px;
     text-align: left;
   }
-  
-  /* Make room for the floating button on mobile */
+  .footer-bottom{
+    margin-top: 4px;
+  }
   .footer { padding-bottom: 80px; }
 }
