@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raj Patil | Backend Developer</title>
+<meta name="description" content="Portfolio of Raj Patil, a Backend Developer specializing in Python, Django, and Enterprise AI solutions.">
+<meta name="keywords" content="Raj Patil, Backend Developer, Python, Django, AI, Data Science, Portfolio">
+<meta name="author" content="Raj Patil">
+<meta property="og:title" content="Raj Patil | Backend Developer">
+<meta property="og:description" content="Building scalable backend systems and AI-driven applications with Python & Django.">
+<meta property="og:image" content="assets/images/profile2.jpg"> <meta property="og:url" content="https://your-website-url.com">
+<meta property="og:type" content="website">
+
+<link rel="icon" type="image/png" href="assets/images/logo.png">
+<link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+<link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<canvas id="code-bg"></canvas>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="nav-container">
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="RP Logo">
+      <span>Raj Patil</span>
+    </div>
+
+    <nav class="nav-links">
+  <a href="#home" class="nav-link active">Home</a>
+  <a href="#about" class="nav-link">About</a>
+  <a href="#projects" class="nav-link">Projects</a>
+  <a href="#skills" class="nav-link">Skills</a>
+  <a href="#contact" class="nav-link">Contact</a>
+</nav>
+
+
+    <div class="nav-actions">
+        
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home" onclick="closeMenu()">Home</a>
+    <a href="#about" onclick="closeMenu()">About</a>
+
+    <a href="#projects" onclick="closeMenu()">Projects</a>
+    <a href="#skills" onclick="closeMenu()">Skills</a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-center ">
+
+    <div class="hero-text">
+      <h1>
+        Backend Developer<br>
+        <span>Python · Django</span>
+      </h1>
+
+      <p>
+        I build scalable backend systems, clean APIs, and practical software
+        solutions focused on performance and clarity.
+      </p>
+
+      <div class="hero-links">
+        <a href="#projects" class="btn primary">View Projects</a>
+        <a href="mailto:rajpatil052003@gmail.com" class="btn outline">Email Me</a>
+      </div>
+    </div>
+
+    
+
+  </div>
+</section>
+<!-- ABOUT -->
+<section id="about" class="section about-section section-alt">
+  <div class="about-container">
+
+    <div class="about-image">
+      <img src="assets/images/profile2.jpg" alt="Raj Patil">
+    </div>
+
+    <div class="about-text">
+      <h2>About Me</h2>
+
+      <h3 class="typewriter">
+        <span id="typewriter-text"></span>
+      </h3>
+
+      <p>
+        I’m a backend-focused developer who enjoys building systems that work
+        reliably in real-world conditions.
+      </p>
+
+      <p>
+        My core stack is <strong>Python and Django</strong>. I design clean APIs,
+        scalable backend logic, and structured databases with performance
+        in mind.
+      </p>
+
+      <p>
+        I value fundamentals over buzzwords — data flow, system clarity,
+        and maintainability matter more than trends.
+      </p>
+  <p class="about-highlight">
+        I believe good engineers are not defined by how many tools they know,
+        but by how clearly they think and how responsibly they build.
+      </p>
+
+    </div>
+
+  </div>
+</section>
+  
+    
+
+<!-- PROJECTS -->
+<section id="projects" class="section reveal">
+  <h2>Projects</h2>
+  <p class="section-desc">
+    Selected backend, system, and data-driven projects I’ve built.
+  </p>
+
+  <div class="project-scroll">
+
+    <div class="project-card reveal-item" onclick="openProject('eatify')">
+      <img src="assets/images/eatify.jpg">
+      <h3>Eatify</h3>
+      <span>Python · Django · REST</span>
+    </div>
+
+    <div class="project-card reveal-item" onclick="openProject('documind')">
+      <img src="assets/images/documind1.jpg" alt="DocuMind">
+      <h3>DocuMind</h3>
+      <span>Python · Django · AI</span>
+    </div>
+    <div class="project-card reveal-item" onclick="openProject('smartstick')">
+      <img src="assets/images/smartstick.jpg">
+      <h3>Smart Stick</h3>
+      <span>Python · IoT</span>
+    </div>
+
+    <div class="project-card reveal-item" onclick="openProject('cms')">
+      <img src="assets/images/cms-dashboard.jpg">
+      <h3>Complaint Management</h3>
+      <span>ASP.NET · C#  </span>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section reveal section-alt">
+    <h2>Skills</h2>
+    <p class="section-desc">Technologies and domains I actively work with.</p>
+  
+    <div class="skills-grid reveal-item">
+      <div class="skill-box featured" onclick="openSkill('python')">
+        <i class="devicon-python-plain colored" style="font-size: 3rem; margin-bottom: 15px; display:block;"></i>
+        <div class="skill-title">Python & Django</div>
+        <div class="skill-sub">Backend · APIs · ORM</div>
+      </div>
+  
+      <div class="skill-box" onclick="openSkill('rest')">
+        <div style="font-size: 2.5rem; margin-bottom: 10px;">🌐</div>
+        <div class="skill-title">REST APIs</div>
+        <div class="skill-sub">Auth · Validation</div>
+      </div>
+  
+      <div class="skill-box" onclick="openSkill('asp')">
+        <i class="devicon-dotnetcore-plain colored" style="font-size: 2.5rem; margin-bottom: 10px; display:block;"></i>
+        <div class="skill-title">ASP.NET & C#</div>
+        <div class="skill-sub">MVC · Architecture</div>
+      </div>
+  
+      <div class="skill-box featured" onclick="openSkill('ai')">
+        <i class="devicon-tensorflow-original colored" style="font-size: 3rem; margin-bottom: 15px; display:block;"></i>
+        <div class="skill-title">AI & ChatBots</div>
+        <div class="skill-sub">RAG · Automation · Agents</div>
+      </div>
+  
+      <div class="skill-box" onclick="openSkill('sql')">
+        <i class="devicon-microsoftsqlserver-plain colored" style="font-size: 2.5rem; margin-bottom: 10px; display:block;"></i>
+        <div class="skill-title">SQL & Databases</div>
+        <div class="skill-sub">PostgreSQL · Schema</div>
+      </div>
+  
+      <div class="skill-box" onclick="openSkill('ds')">
+        <i class="devicon-pandas-plain colored" style="font-size: 2.5rem; margin-bottom: 10px; display:block;"></i>
+        <div class="skill-title">Data Science</div>
+        <div class="skill-sub">Pipelines · Analysis</div>
+      </div>
+    </div>
+  </section>
+
+
+<!-- CONTACT -->
+<section id="contact" class="section reveal contact-section section-alt">
+  <h2>Contact</h2>
+  <p class="section-desc">Let’s build something useful.</p>
+
+  <div class="contact-grid">
+
+    <div class="contact-text">
+      <p>
+        I’m always open to discussing backend roles, freelance work,
+        or interesting technical problems.
+      </p>
+    </div>
+
+    <div class="contact-buttons">
+      <a href="https://github.com/Raj-128" class="btn outline">GitHub</a>
+      <a href="https://linkedin.com/in/rajpatil05" class="btn outline">LinkedIn</a>
+      <a href="mailto:rajpatil052003@gmail.com" class="btn primary">Email</a>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-content">
+    
+    <div class="footer-brand">
+     <p>&copy; <span id="year"></span> Raj Patil. All rights reserved.</p>
+      <p class="footer-tagline">
+  Building robust backend systems and <br>
+  scalable APIs with Python & Django.
+</p>
+    </div>
+
+    <div class="footer-links-group">
+      
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://github.com/Raj-128">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/rajpatil05">LinkedIn</a></li>
+          <li><a href="mailto:rajpatil052003@gmail.com">Email</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <span>&copy; 2025 Raj Patil. All rights reserved.</span>
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="back-to-top" style="background:none; border:none; color:#3b82f6; cursor:pointer;">
+      ↑ Back to Top
+    </button>
+  </div>
+</footer>
+
+<script>
+/* Simple Scroll to Top Function */
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+
+<a href="Raj_Patil_Backend_Developer_Resume.pdf" class="resume-float">Download Resume</a>
+
+<!-- MODAL -->
+<div class="modal" id="projectModal">
+  <div class="modal-content">
+    <span class="close" onclick="closeProject()">×</span>
+    <h3 id="modalTitle"></h3>
+    <img id="modalImage">
+    <p id="modalDesc"></p>
+  </div>
+</div>
+
+<script>
+function toggleMenu() {
+  document.getElementById("mobileMenu").classList.toggle("show");
+}
+function closeMenu() {
+  document.getElementById("mobileMenu").classList.remove("show");
+}
+
+/* DARK MODE */
+const toggle = document.getElementById("themeToggle");
+if (localStorage.theme === "dark") {
+  document.body.classList.add("dark");
+  toggle.textContent = "☀️";
+}
+toggle.onclick = () => {
+  document.body.classList.toggle("dark");
+  const dark = document.body.classList.contains("dark");
+  toggle.textContent = dark ? "☀️" : "🌙";
+  localStorage.theme = dark ? "dark" : "light";
+};
+
+/* PROJECT DATA */
+const projects = {
+  eatify: {
+    title: "Eatify",
+    img: "assets/images/eatify.jpg",
+    desc: `
+• A robust food ordering backend engineered with Django and Django REST Framework.
+• Manages complex cart logic, order lifecycles, and real-time status updates with data integrity.
+• Implements secure JWT authentication and optimized SQL queries for high-volume menu data.
+• Focuses on scalable API design to serve both web and mobile frontend clients efficiently.
+    `
+  },
+  documind: {
+    title: "DocuMind | Enterprise AI",
+    img: "assets/images/documind1.jpg", 
+   desc: `
+• An intelligent RAG (Retrieval-Augmented Generation) chatbot built with Django.
+• Bridges the gap between static documents and dynamic user queries by allowing users to "chat" with their data.
+• Features context-aware memory for handling follow-up questions and maintaining conversation flow.
+• Implements secure document parsing and a responsive UI, demonstrating full-stack AI integration.
+    `
+  },
+  smartstick: {
+    title: "Smart Stick",
+    img: "assets/images/smartstick.jpg",
+    desc: `
+• An IoT assistive device for the visually impaired, powered by Python and Raspberry Pi.
+• Utilizes ultrasonic sensors to calculate distance and detect obstacles in real-time.
+• Processes sensor data to trigger immediate, low-latency voice alerts for navigation safety.
+• Demonstrates hardware-software integration and efficient Python scripting for edge devices.
+    `
+  },
+  cms: {
+    title: "Complaint Management System",
+    img: "assets/images/cms-dashboard.jpg",
+   desc: `
+• An enterprise-grade grievance tracking platform developed using ASP.NET and C#.
+• Features strict Role-Based Access Control (RBAC) to separate Admin, Agent, and User workflows.
+• Includes a dynamic dashboard for real-time ticket status monitoring and reporting.
+• Built with a focus on secure data handling and maintainable MVC architecture.
+    `
+  }
+};
+
+function openProject(key) {
+  document.getElementById("modalTitle").innerText = projects[key].title;
+  document.getElementById("modalImage").src = projects[key].img;
+  document.getElementById("modalDesc").innerText = projects[key].desc;
+  document.getElementById("projectModal").style.display = "flex";
+}
+function closeProject() {
+  document.getElementById("projectModal").style.display = "none";
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+/* ========== SECTION REVEAL ========== */
+gsap.utils.toArray(".reveal").forEach(section => {
+  gsap.from(section, {
+    opacity: 0,
+    y: 60,
+    duration: 1,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: section,
+      start: "top 80%"
+    }
+  });
+});
+
+/* ========== STAGGER ITEMS ========== */
+gsap.utils.toArray(".reveal-item").forEach((item, i) => {
+  gsap.from(item, {
+    opacity: 0,
+    y: 40,
+    duration: 0.6,
+    delay: i * 0.08,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: item,
+      start: "top 85%"
+    }
+  });
+});
+
+/* ========== HERO TEXT ANIMATION ========== */
+gsap.from(".hero h1", {
+  opacity: 0,
+  y: 40,
+  duration: 1,
+  ease: "power3.out"
+});
+
+gsap.from(".hero p", {
+  opacity: 0,
+  y: 20,
+  duration: 0.8,
+  delay: 0.3
+});
+
+gsap.from(".hero-links a", {
+  opacity: 0,
+  y: 20,
+  duration: 0.6,
+  stagger: 0.15,
+  delay: 0.6
+});
+/* HERO IMAGE DISAPPEAR */
+gsap.to(".hero-image img", {
+  opacity: 0,
+  scale: 0.9,
+  scrollTrigger: {
+    trigger: "#about",
+    start: "top 80%",
+    toggleActions: "play none none reverse"
+  }
+});
+
+/* ABOUT IMAGE APPEAR */
+gsap.to(".about-image img", {
+  opacity: 1,
+  y: 0,
+  duration: 0.8,
+  ease: "power3.out",
+  scrollTrigger: {
+    trigger: "#about",
+    start: "top 75%"
+  }
+});
+
+/* ========== MODAL POP ANIMATION ========== */
+function openProject(key) {
+  document.getElementById("modalTitle").innerText = projects[key].title;
+  document.getElementById("modalImage").src = projects[key].img;
+  document.getElementById("modalDesc").innerText = projects[key].desc;
+
+  const modal = document.getElementById("projectModal");
+  modal.style.display = "flex";
+
+  gsap.from(".modal-content", {
+    scale: 0.85,
+    opacity: 0,
+    duration: 0.4,
+    ease: "back.out(1.7)"
+  });
+}
+
+</script>
+<script>
+const hero = document.querySelector(".hero");
+
+ScrollTrigger.create({
+  trigger: hero,
+  start: "top top",
+  end: "bottom top+=120",
+  onLeave: () => hero.classList.add("scrolled"),
+  onEnterBack: () => hero.classList.remove("scrolled")
+});
+</script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+<div class="modal" id="skillModal">
+  <div class="modal-content skill-modal">
+    <span class="close" onclick="closeSkill()">×</span>
+    <h3 id="skillTitle"></h3>
+    <p id="skillDesc"></p>
+  </div>
+</div>
+<script>
+const skills = {
+  python: {
+    title: "Python & Django",
+    desc: `
+• Backend development using Django ORM and MVC architecture  
+• Authentication, authorization, and role-based access control  
+• Scalable API and backend logic design  
+• Clean code, modular structure, and performance tuning  
+• Real-world backend systems, not just demos
+    `
+  },
+
+  rest: {
+    title: "REST APIs",
+    desc: `
+• RESTful API design with proper status codes  
+• JWT & token-based authentication  
+• Pagination, filtering, and validation  
+• API performance and error handling  
+• Built for frontend & mobile consumption
+    `
+  },
+
+  asp: {
+    title: "ASP.NET & C#",
+    desc: `
+• ASP.NET MVC & Web API development  
+• Role-based enterprise applications  
+• Secure backend workflows  
+• C# business logic and controllers  
+• Experience with real dashboards
+    `
+  },
+
+  sql: {
+    title: "SQL & Databases",
+    desc: `
+• Relational database design  
+• Complex SQL queries and joins  
+• Indexing and query optimization  
+• Data consistency and integrity  
+• Backend-focused data modeling
+    `
+  },
+
+  ai: {
+    title: "AI & ChatBots",
+    desc: `
+• Building RAG (Retrieval-Augmented Generation) pipelines for document interaction
+• Orchestrating tool-based Python agents for complex task automation
+• Integrating Large Language Models (LLMs) directly into Django backends
+• Implementing NLP memory and context handling for human-like conversations
+• Focused on practical, production-ready AI solutions rather than just theory
+    `
+  },
+
+  ds: {
+    title: "Data Science",
+    desc: `
+• Data analysis and preprocessing  
+• Feature engineering and model training  
+• Real datasets, not toy problems  
+• Practical ML pipelines  
+• Backend + data integration mindset
+    `
+  }
+};
+
+function openSkill(key) {
+  document.getElementById("skillTitle").innerText = skills[key].title;
+  document.getElementById("skillDesc").innerText = skills[key].desc;
+
+  const modal = document.getElementById("skillModal");
+  modal.style.display = "flex";
+
+  gsap.from(".skill-modal", {
+    scale: 0.85,
+    opacity: 0,
+    duration: 0.4,
+    ease: "back.out(1.7)"
+  });
+}
+
+function closeSkill() {
+  document.getElementById("skillModal").style.display = "none";
+}
+</script>
+
+<script>
+const text = "Backend Developer focused on Python & Django.";
+let index = 0;
+
+function typeWriter() {
+  if (index < text.length) {
+    document.getElementById("typewriter-text").innerHTML += text.charAt(index);
+    index++;
+    setTimeout(typeWriter, 60);
+  }
+}
+
+const aboutSection = document.getElementById("about");
+
+const observer = new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting) {
+    typeWriter();
+    observer.disconnect();
+  }
+}, { threshold: 0.4 });
+
+observer.observe(aboutSection);
+</script>
+<script>
+/* ===============================
+   GLOBAL CODE BACKGROUND SCRIPT
+   =============================== */
+
+const canvas = document.getElementById("code-bg");
+const ctx = canvas.getContext("2d");
+
+let w, h;
+const particles = [];
+
+/* -------------------------------
+   Resize & Rebuild
+-------------------------------- */
+function resizeCanvas() {
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
+
+  particles.length = 0;
+  const density = Math.floor((w * h) / 42000);
+
+  for (let i = 0; i < density; i++) {
+    particles.push(createParticle());
+  }
+}
+
+window.addEventListener("resize", resizeCanvas);
+
+/* -------------------------------
+   Mouse Interaction
+-------------------------------- */
+const mouse = {
+  x: null,
+  y: null,
+  radius: 120
+};
+
+window.addEventListener("mousemove", (e) => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+});
+
+window.addEventListener("mouseleave", () => {
+  mouse.x = null;
+  mouse.y = null;
+});
+
+/* -------------------------------
+   Symbols
+-------------------------------- */
+const symbols = ["{", "}", "<", ">", "/", ";", "=", "(", ")", "[", "]"];
+
+/* -------------------------------
+   Particle Factory
+-------------------------------- */
+function createParticle() {
+  const angle = Math.random() * Math.PI * 2;
+  const speed = 0.08 + Math.random() * 0.18;
+
+  const dx = Math.cos(angle) * speed;
+  const dy = Math.sin(angle) * speed;
+
+  return {
+    x: Math.random() * w,
+    y: Math.random() * h,
+
+    dx,
+    dy,
+    baseDx: dx,
+    baseDy: dy,
+
+    rotation: Math.random() * Math.PI * 2,
+    rotationSpeed: (Math.random() - 0.5) * 0.003,
+
+    size: 28 + Math.random() * 10,
+    char: symbols[Math.floor(Math.random() * symbols.length)],
+    alpha: 0.22 + Math.random() * 0.35
+  };
+}
+
+/* -------------------------------
+   Animation Loop
+-------------------------------- */
+function animate() {
+  ctx.clearRect(0, 0, w, h);
+
+  const isDark = document.body.classList.contains("dark");
+  ctx.fillStyle = isDark
+    ? "rgba(96,165,250,0.8)"
+    : "rgba(37,99,235,0.75)";
+
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+
+  particles.forEach(p => {
+
+    /* Hover influence (soft blob) */
+    if (mouse.x !== null) {
+      const dx = p.x - mouse.x;
+      const dy = p.y - mouse.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist < mouse.radius) {
+        const force = Math.pow(
+          (mouse.radius - dist) / mouse.radius,
+          1.5
+        );
+        const angle = Math.atan2(dy, dx);
+
+        // Repulsion
+        p.dx += Math.cos(angle) * force * 0.12;
+        p.dy += Math.sin(angle) * force * 0.12;
+
+        // Subtle swirl
+        p.dx += -Math.sin(angle) * force * 0.04;
+        p.dy +=  Math.cos(angle) * force * 0.04;
+      }
+    }
+
+    /* Return to base motion */
+    p.dx += (p.baseDx - p.dx) * 0.02;
+    p.dy += (p.baseDy - p.dy) * 0.02;
+
+    /* Draw symbol */
+    ctx.save();
+    ctx.globalAlpha = p.alpha;
+    ctx.translate(p.x, p.y);
+    ctx.rotate(p.rotation);
+    ctx.font = `bold ${p.size}px monospace`;
+    ctx.fillText(p.char, 0, 0);
+    ctx.restore();
+
+    /* Update position */
+    p.x += p.dx;
+    p.y += p.dy;
+    p.rotation += p.rotationSpeed;
+
+    /* Screen wrap */
+    if (p.x < -80) p.x = w + 80;
+    if (p.x > w + 80) p.x = -80;
+    if (p.y < -80) p.y = h + 80;
+    if (p.y > h + 80) p.y = -80;
+  });
+
+  requestAnimationFrame(animate);
+}
+
+/* -------------------------------
+   Init
+-------------------------------- */
+resizeCanvas();
+animate();
+/* ========== NAVBAR SCROLLSPY ========== */
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav-link");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    
+    // Check if the scroll position is within the section (with a 150px offset)
+    if (pageYOffset >= sectionTop - 150) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+    if (link.getAttribute("href").includes(current)) {
+      link.classList.add("active");
+    }
+  });
+});
+/* ========== SMOOTH SCROLL & ACTIVE LINK ========== */
+
+// 1. Smooth Scroll for clicks
+document.querySelectorAll('.nav-link').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href');
+    const targetSection = document.querySelector(targetId);
+    
+    if (targetSection) {
+      window.scrollTo({
+        top: targetSection.offsetTop - 80, // Adjust for navbar height
+        behavior: 'smooth'
+      });
+    }
+    
+    // Close mobile menu if open
+    if (typeof closeMenu === "function") closeMenu();
+  });
+});
+
+// 2. Scrollspy Logic
+window.addEventListener("scroll", () => {
+  let current = "";
+  const scrollPos = window.scrollY + 120; // Offset for better timing
+
+  sections.forEach((section) => {
+    if (scrollPos >= section.offsetTop) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === `#${current}`) {
+      link.classList.add("active");
+    }
+  });
+});
+</script>
+
+
+</body>
+</html>
