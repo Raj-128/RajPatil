@@ -1,7 +1,6 @@
 # 🚀 Raj Patil | Backend Developer 
 ### Python · Django · Enterprise AI 
 
-![Glassmorphism Portfolio](https://img.shields.io/badge/UI-Glassmorphism-blue?style=for-the-badge)
 ![Backend](https://img.shields.io/badge/Stack-Python%20%7C%20Django-green?style=for-the-badge)
 
 ![Status](https://img.shields.io/badge/Status-Live-success?style=for-the-badge)
