@@ -843,3 +843,101 @@
     border: 1px solid rgba(255, 255, 255, 0.05) !important;
   }
   
+  /* Layout for Hero Container */
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+  z-index: 2;
+}
+
+.hero-text {
+  flex: 1.2;
+  text-align: left; 
+  pointer-events: auto;
+}
+
+.hero-robot {
+  flex: 1;
+  height: 600px;
+  width: 100%;
+  position: relative;
+  overflow: hidden; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* THE SPOTLIGHT EFFECT */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  /* Start the spotlight in the center */
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  background: transparent; /* This lets your code-bg and body gradient show through */
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y),
+    var(--accent-glow), /* Uses your existing theme's glow color */
+    transparent 40%
+  );
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.6; /* Subtle effect so it doesn't hide your code background */
+}
+spline-viewer {
+  width: 100%;
+  height: 700px; 
+  position: absolute;
+  bottom: -87px; 
+  transform: scale(0.9); 
+  pointer-events: auto;
+}
+/* Mobile responsive fix */
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 80px;
+  }
+  .hero-text { padding-right: 0;margin-bottom: 20px; }
+  .hero-robot { height: 400px;width: 100; }
+}
+@media (max-width: 768px) {
+  spline-viewer {
+    transform: scale(0.7);
+    bottom: -100px;
+  }
+}
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid var(--accent);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  position: absolute;
+}
+
+@keyframes rotation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
