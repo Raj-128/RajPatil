@@ -163,7 +163,7 @@
         </div>
 
         <div class="project-card reveal-item" onclick="openProject('documind')">
-          <img src="assets/images/documind1.jpg" alt="DocuMind" />
+          <img src="assets/images/chat.png" alt="DocuMind" />
           <h3>DocuMind</h3>
           <span>Python · Django · AI</span>
         </div>
@@ -331,11 +331,22 @@
     <!-- MODAL -->
     <div class="modal" id="projectModal">
       <div class="modal-content">
-        <span class="close" onclick="closeProject()">×</span>
-        <h3 id="modalTitle"></h3>
-        <img id="modalImage" />
-        <p id="modalDesc"></p>
-      </div>
+  <span class="close" onclick="closeProject()">×</span>
+
+  <h3 id="modalTitle"></h3>
+  <img id="modalImage" />
+  <p id="modalDesc"></p>
+
+  <div class="project-buttons">
+  <a id="liveDemoBtn" target="_blank" class="btn primary">
+    🚀 Live Demo
+  </a>
+
+  <a id="githubBtn" target="_blank" class="btn outline">
+    💻 GitHub
+  </a>
+</div>
+</div>
     </div>
 
     <script>
@@ -364,6 +375,10 @@
         eatify: {
           title: "Eatify",
           img: "assets/images/eatify.jpg",
+
+          live: "https://eatify-eyn1.onrender.com/",
+          github: "https://github.com/Raj-128/Eatify",
+
           desc: `
 • A robust food ordering backend engineered with Django and Django REST Framework.
 • Manages complex cart logic, order lifecycles, and real-time status updates with data integrity.
@@ -373,7 +388,10 @@
         },
         documind: {
           title: "DocuMind | Enterprise AI",
-          img: "assets/images/documind1.jpg",
+          img: "assets/images/chat.png",
+
+          live: "https://documind-zgo1.onrender.com/",
+          github: "https://github.com/Raj-128/DocuMind",
           desc: `
 • An intelligent RAG (Retrieval-Augmented Generation) chatbot built with Django.
 • Bridges the gap between static documents and dynamic user queries by allowing users to "chat" with their data.
@@ -483,21 +501,45 @@
       });
 
       /* ========== MODAL POP ANIMATION ========== */
-      function openProject(key) {
-        document.getElementById("modalTitle").innerText = projects[key].title;
-        document.getElementById("modalImage").src = projects[key].img;
-        document.getElementById("modalDesc").innerText = projects[key].desc;
+     function openProject(key) {
+  document.getElementById("modalTitle").innerText =
+    projects[key].title;
 
-        const modal = document.getElementById("projectModal");
-        modal.style.display = "flex";
+  document.getElementById("modalImage").src =
+    projects[key].img;
 
-        gsap.from(".modal-content", {
-          scale: 0.85,
-          opacity: 0,
-          duration: 0.4,
-          ease: "back.out(1.7)",
-        });
-      }
+  document.getElementById("modalDesc").innerText =
+    projects[key].desc;
+
+  const liveBtn = document.getElementById("liveDemoBtn");
+  const githubBtn = document.getElementById("githubBtn");
+
+  // Live Demo
+  if (projects[key].live) {
+    liveBtn.style.display = "inline-block";
+    liveBtn.href = projects[key].live;
+  } else {
+    liveBtn.style.display = "none";
+  }
+
+  // GitHub
+  if (projects[key].github) {
+    githubBtn.style.display = "inline-block";
+    githubBtn.href = projects[key].github;
+  } else {
+    githubBtn.style.display = "none";
+  }
+
+  const modal = document.getElementById("projectModal");
+  modal.style.display = "flex";
+
+  gsap.from(".modal-content", {
+    scale: 0.85,
+    opacity: 0,
+    duration: 0.4,
+    ease: "back.out(1.7)",
+  });
+}
     </script>
     <script>
       const hero = document.querySelector(".hero");
