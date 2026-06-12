@@ -6,927 +6,470 @@
     <title>Raj Patil | Backend Developer</title>
     <meta
       name="description"
-      content="Portfolio of Raj Patil, a Backend Developer specializing in Python, Django, and Enterprise AI solutions."
-    />
-    <meta
-      name="keywords"
-      content="Raj Patil, Backend Developer, Python, Django, AI, Data Science, Portfolio"
+      content="Raj Patil is a backend developer building Django APIs, AI document workflows, dashboards, and reliable data-driven systems."
     />
     <meta name="author" content="Raj Patil" />
     <meta property="og:title" content="Raj Patil | Backend Developer" />
     <meta
       property="og:description"
-      content="Building scalable backend systems and AI-driven applications with Python & Django."
+      content="Backend systems, Django APIs, AI workflows, and production-minded software."
     />
     <meta property="og:image" content="assets/images/profile2.jpg" />
-    <meta property="og:url" content="https://your-website-url.com" />
     <meta property="og:type" content="website" />
 
-    <script
-      type="module"
-      src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"
-    ></script>
     <link rel="icon" type="image/png" href="assets/images/logo.png" />
     <link
       rel="stylesheet"
-      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css"
+    />
+    <link
+      rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
     />
-    <link rel="icon" type="image/png" href="assets/images/logo.png" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
-    <canvas id="code-bg"></canvas>
+    <div class="page-grid" aria-hidden="true"></div>
+    <div class="cursor-dot" aria-hidden="true"></div>
 
-    <!-- NAVBAR -->
-    <header class="navbar">
-      <div class="nav-container">
-        <div class="logo">
-          <img src="assets/images/logo.png" alt="RP Logo" />
+    <header class="site-header" id="site-header">
+      <nav class="nav container">
+        <a href="#intro" class="brand">
+          <img src="assets/images/logo.png" alt="Raj Patil logo" />
           <span>Raj Patil</span>
-        </div>
+        </a>
 
-        <nav class="nav-links">
-          <a href="#home" class="nav-link active">Home</a>
-          <a href="#about" class="nav-link">About</a>
-          <a href="#projects" class="nav-link">Projects</a>
-          <a href="#skills" class="nav-link">Skills</a>
+        <div class="nav-panel" id="nav-panel">
+          <a href="#intro" class="nav-link active-link">Intro</a>
+          <a href="#work" class="nav-link">Work</a>
+          <a href="#capabilities" class="nav-link">Capabilities</a>
+          <a href="#profile" class="nav-link">Profile</a>
           <a href="#contact" class="nav-link">Contact</a>
-        </nav>
+          <button class="nav-close" id="nav-close" aria-label="Close menu">
+            <i class="ri-close-line"></i>
+          </button>
+        </div>
 
         <div class="nav-actions">
-          <button
-            id="themeToggle"
-            class="theme-toggle"
-            aria-label="Toggle theme"
-          >
-            🌙
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+            <i class="ri-moon-line"></i>
           </button>
-          <button class="menu-btn" onclick="toggleMenu()">☰</button>
+          <button class="nav-toggle" id="nav-toggle" aria-label="Open menu">
+            <i class="ri-menu-4-line"></i>
+          </button>
         </div>
-      </div>
-
-      <div class="mobile-menu" id="mobileMenu">
-        <a href="#home" onclick="closeMenu()">Home</a>
-        <a href="#about" onclick="closeMenu()">About</a>
-
-        <a href="#projects" onclick="closeMenu()">Projects</a>
-        <a href="#skills" onclick="closeMenu()">Skills</a>
-        <a href="#contact" onclick="closeMenu()">Contact</a>
-      </div>
+      </nav>
     </header>
 
-    <!-- HERO -->
-    <section id="home" class="hero">
-      <div class="hero-container">
-        <div class="hero-text">
-          <h1>
-            Backend Developer<br />
-            <span>Python · Django</span>
-          </h1>
-          <p>
-            I build scalable backend systems, clean APIs, and practical software
-            solutions focused on performance and clarity.
-          </p>
-          <div class="hero-links">
-            <a href="#projects" class="btn primary">View Projects</a>
-            <a href="mailto:rajpatil052003@gmail.com" class="btn outline"
-              >Email Me</a
-            >
+    <main>
+      <section class="intro section" id="intro">
+        <div class="intro-container container">
+          <aside class="intro-social reveal">
+            <span>Connect</span>
+            <a href="https://github.com/Raj-128" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <i class="ri-github-fill"></i>
+            </a>
+            <a href="https://linkedin.com/in/rajpatil05" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <i class="ri-linkedin-box-fill"></i>
+            </a>
+            <a href="mailto:rajpatil052003@gmail.com" aria-label="Email">
+              <i class="ri-mail-send-line"></i>
+            </a>
+          </aside>
+
+          <div class="intro-copy reveal">
+            <span class="eyebrow">
+              <span></span>
+              Backend Developer / AI Builder
+            </span>
+            <h1>
+              Backend Developer for APIs, AI, and reliable systems.
+            </h1>
+            <p>
+              I build Django APIs, SQL-backed workflows, dashboards, and
+              practical AI features for real products.
+            </p>
+
+            <div class="intro-actions">
+              <a href="#work" class="button">Explore Work</a>
+              <a href="Raj_Patil_Backend_Developer_Resume.pdf" class="button ghost-button">Resume</a>
+            </div>
+          </div>
+
+          <div class="intro-visual reveal">
+            <div class="portrait-shell">
+              <img src="assets/images/profile2.jpg" alt="Raj Patil" />
+              <div class="orbit orbit-one"></div>
+              <div class="orbit orbit-two"></div>
+            </div>
+          </div>
+
+          <div class="intro-card reveal">
+            <div>
+              <span class="pulse"></span>
+              Available for backend roles
+            </div>
+            <strong>Django APIs • RAG • SQL systems</strong>
+          </div>
+
+          <div class="intro-metrics reveal">
+            <article>
+              <strong>04</strong>
+              <span>Featured projects</span>
+            </article>
+            <article>
+              <strong>03</strong>
+              <span>Backend ecosystems</span>
+            </article>
+            <article>
+              <strong>AI</strong>
+              <span>Document workflows</span>
+            </article>
           </div>
         </div>
+      </section>
 
-        <div class="hero-robot">
-          <div id="robot-loader" class="loader"></div>
+      <section class="work section" id="work">
+        <div class="container">
+          <div class="section-heading reveal">
+            <span>Selected work</span>
+            <h2>Backend projects with clear product value.</h2>
+          </div>
 
-          <spline-viewer
-            url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-            onLoad="document.getElementById('robot-loader').style.display='none';"
-          ></spline-viewer>
+          <div class="work-layout">
+            <article class="work-feature reveal" data-project="documind">
+              <img src="assets/images/chat.png" alt="DocuMind RAG chatbot" />
+              <div class="work-feature-content">
+                <span>Featured AI project</span>
+                <h3>DocuMind</h3>
+                <p>
+                  RAG chatbot built with Django for document conversations,
+                  context-aware memory, and practical full-stack AI integration.
+                </p>
+                <button class="text-link">View case study <i class="ri-arrow-right-up-line"></i></button>
+              </div>
+            </article>
+
+            <div class="work-list">
+              <article class="work-item reveal" data-project="eatify">
+                <img src="assets/images/eatify.jpg" alt="Eatify food ordering backend" />
+                <div>
+                  <span>Python / Django / REST</span>
+                  <h3>Eatify</h3>
+                  <p>Food ordering APIs with cart, order lifecycle, JWT auth, and SQL-focused performance.</p>
+                </div>
+              </article>
+
+              <article class="work-item reveal" data-project="smartstick">
+                <img src="assets/images/smartstick.jpg" alt="Smart Stick IoT project" />
+                <div>
+                  <span>Python / IoT</span>
+                  <h3>Smart Stick</h3>
+                  <p>Assistive navigation device with sensors, Python logic, and voice alerts.</p>
+                </div>
+              </article>
+
+              <article class="work-item reveal" data-project="cms">
+                <img src="assets/images/cms-dashboard.jpg" alt="Complaint management dashboard" />
+                <div>
+                  <span>ASP.NET / C#</span>
+                  <h3>Complaint Management</h3>
+                  <p>Role-based dashboard for complaint tracking, status monitoring, and admin workflows.</p>
+                </div>
+              </article>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
-    <!-- ABOUT -->
-    <section id="about" class="section about-section section-alt">
-      <div class="about-container">
-        <div class="about-image">
-          <img src="assets/images/profile2.jpg" alt="Raj Patil" />
+      </section>
+
+      <section class="capabilities section" id="capabilities">
+        <div class="container">
+          <div class="section-heading reveal">
+            <span>Capabilities</span>
+            <h2>Backend work I can own end to end.</h2>
+          </div>
+
+          <div class="capability-grid">
+            <article class="capability-card reveal">
+              <i class="ri-server-line"></i>
+              <h3>API Architecture</h3>
+              <p>Clean Django REST APIs, auth flows, validation, serializers, and endpoint design for frontend and mobile clients.</p>
+            </article>
+            <article class="capability-card reveal">
+              <i class="ri-database-2-line"></i>
+              <h3>Database Logic</h3>
+              <p>Schema thinking, query performance, relational models, data consistency, and backend-first data flow.</p>
+            </article>
+            <article class="capability-card reveal">
+              <i class="ri-robot-2-line"></i>
+              <h3>AI Workflows</h3>
+              <p>RAG pipelines, document parsing, LLM-backed features, chatbot memory, and useful automation.</p>
+            </article>
+            <article class="capability-card reveal">
+              <i class="ri-dashboard-3-line"></i>
+              <h3>Dashboards</h3>
+              <p>Role-based dashboards, admin panels, CRUD workflows, reporting pages, and secure business logic.</p>
+            </article>
+          </div>
         </div>
+      </section>
 
-        <div class="about-text">
-          <h2>About Me</h2>
+      <section class="profile section" id="profile">
+        <div class="profile-container container">
+          <div class="section-heading reveal">
+            <span>Profile</span>
+            <h2>Clear thinking, reliable backend execution.</h2>
+          </div>
 
-          <h3 class="typewriter">
-            <span id="typewriter-text"></span>
-          </h3>
+          <div class="profile-grid">
+            <article class="profile-story reveal">
+              <h3>About</h3>
+              <p>
+                I’m a backend-focused developer who enjoys building systems that
+                work reliably in real-world conditions. I value fundamentals:
+                data flow, maintainability, performance, and clear ownership.
+              </p>
+            </article>
 
-          <p>
-            I’m a backend-focused developer who enjoys building systems that
-            work reliably in real-world conditions.
-          </p>
+            <article class="timeline reveal">
+              <h3>Build mindset</h3>
+              <div class="timeline-item">
+                <span>01</span>
+                <p>Understand the data and user flow before writing endpoints.</p>
+              </div>
+              <div class="timeline-item">
+                <span>02</span>
+                <p>Keep APIs predictable, validated, and easy for clients to consume.</p>
+              </div>
+              <div class="timeline-item">
+                <span>03</span>
+                <p>Ship systems that can be maintained after the first demo.</p>
+              </div>
+            </article>
 
-          <p>
-            My core stack is <strong>Python and Django</strong>. I design clean
-            APIs, scalable backend logic, and structured databases with
-            performance in mind.
-          </p>
-
-          <p>
-            I value fundamentals over buzzwords — data flow, system clarity, and
-            maintainability matter more than trends.
-          </p>
-          <p class="about-highlight">
-            I believe good engineers are not defined by how many tools they
-            know, but by how clearly they think and how responsibly they build.
-          </p>
+            <article class="skill-cloud reveal">
+              <h3>Stack</h3>
+              <div>
+                <span><i class="devicon-python-plain colored"></i>Python</span>
+                <span><i class="devicon-django-plain colored"></i>Django</span>
+                <span><i class="ri-exchange-2-line"></i>REST APIs</span>
+                <span><i class="devicon-microsoftsqlserver-plain colored"></i>SQL</span>
+                <span><i class="devicon-dotnetcore-plain colored"></i>ASP.NET</span>
+                <span><i class="devicon-tensorflow-original colored"></i>AI / RAG</span>
+                <span><i class="devicon-pandas-plain colored"></i>Data Science</span>
+                <span><i class="ri-shield-keyhole-line"></i>Auth</span>
+              </div>
+            </article>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="section reveal">
-      <h2>Projects</h2>
-      <p class="section-desc">
-        Selected backend, system, and data-driven projects I’ve built.
-      </p>
+      <section class="contact section" id="contact">
+        <div class="contact-container container">
+          <div class="contact-copy reveal">
+            <span class="eyebrow">Let’s build</span>
+            <h2>Have a backend role or project?</h2>
+            <p>
+              I’m open to discussing backend roles, Django work, AI integrations,
+              dashboards, or practical software systems.
+            </p>
+          </div>
 
-      <div class="project-scroll">
-        <div class="project-card reveal-item" onclick="openProject('eatify')">
-          <img src="assets/images/eatify.jpg" />
-          <h3>Eatify</h3>
-          <span>Python · Django · REST</span>
+          <div class="contact-panel reveal">
+            <a href="mailto:rajpatil052003@gmail.com" class="mail-link">
+              <i class="ri-mail-send-line"></i>
+              rajpatil052003@gmail.com
+            </a>
+            <button class="copy-email" id="copy-email">
+              <i class="ri-file-copy-line"></i>
+              Copy email
+            </button>
+            <div class="contact-links">
+              <a href="https://github.com/Raj-128" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://linkedin.com/in/rajpatil05" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="Raj_Patil_Backend_Developer_Resume.pdf">Resume</a>
+            </div>
+          </div>
         </div>
-
-        <div class="project-card reveal-item" onclick="openProject('documind')">
-          <img src="assets/images/chat.png" alt="DocuMind" />
-          <h3>DocuMind</h3>
-          <span>Python · Django · AI</span>
-        </div>
-        <div
-          class="project-card reveal-item"
-          onclick="openProject('smartstick')"
-        >
-          <img src="assets/images/smartstick.jpg" />
-          <h3>Smart Stick</h3>
-          <span>Python · IoT</span>
-        </div>
-
-        <div class="project-card reveal-item" onclick="openProject('cms')">
-          <img src="assets/images/cms-dashboard.jpg" />
-          <h3>Complaint Management</h3>
-          <span>ASP.NET · C# </span>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="section reveal section-alt">
-      <h2>Skills</h2>
-      <p class="section-desc">Technologies and domains I actively work with.</p>
-
-      <div class="skills-grid reveal-item">
-        <div class="skill-box featured" onclick="openSkill('python')">
-          <i
-            class="devicon-python-plain colored"
-            style="font-size: 3rem; margin-bottom: 15px; display: block"
-          ></i>
-          <div class="skill-title">Python & Django</div>
-          <div class="skill-sub">Backend · APIs · ORM</div>
-        </div>
-
-        <div class="skill-box" onclick="openSkill('rest')">
-          <div style="font-size: 2.5rem; margin-bottom: 10px">🌐</div>
-          <div class="skill-title">REST APIs</div>
-          <div class="skill-sub">Auth · Validation</div>
-        </div>
-
-        <div class="skill-box" onclick="openSkill('asp')">
-          <i
-            class="devicon-dotnetcore-plain colored"
-            style="font-size: 2.5rem; margin-bottom: 10px; display: block"
-          ></i>
-          <div class="skill-title">ASP.NET & C#</div>
-          <div class="skill-sub">MVC · Architecture</div>
-        </div>
-
-        <div class="skill-box featured" onclick="openSkill('ai')">
-          <i
-            class="devicon-tensorflow-original colored"
-            style="font-size: 3rem; margin-bottom: 15px; display: block"
-          ></i>
-          <div class="skill-title">AI & ChatBots</div>
-          <div class="skill-sub">RAG · Automation · Agents</div>
-        </div>
-
-        <div class="skill-box" onclick="openSkill('sql')">
-          <i
-            class="devicon-microsoftsqlserver-plain colored"
-            style="font-size: 2.5rem; margin-bottom: 10px; display: block"
-          ></i>
-          <div class="skill-title">SQL & Databases</div>
-          <div class="skill-sub">PostgreSQL · Schema</div>
-        </div>
-
-        <div class="skill-box" onclick="openSkill('ds')">
-          <i
-            class="devicon-pandas-plain colored"
-            style="font-size: 2.5rem; margin-bottom: 10px; display: block"
-          ></i>
-          <div class="skill-title">Data Science</div>
-          <div class="skill-sub">Pipelines · Analysis</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section reveal contact-section section-alt">
-      <h2>Contact</h2>
-      <p class="section-desc">Let’s build something useful.</p>
-
-      <div class="contact-grid">
-        <div class="contact-text">
-          <p>
-            I’m always open to discussing backend roles, freelance work, or
-            interesting technical problems.
-          </p>
-        </div>
-
-        <div class="contact-buttons">
-          <a href="https://github.com/Raj-128" class="btn outline">GitHub</a>
-          <a href="https://linkedin.com/in/rajpatil05" class="btn outline"
-            >LinkedIn</a
-          >
-          <a href="mailto:rajpatil052003@gmail.com" class="btn primary"
-            >Email</a
-          >
-        </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
     <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-brand">
-          <p>&copy; <span id="year"></span> Raj Patil. All rights reserved.</p>
-          <p class="footer-tagline">
-            Building robust backend systems and <br />
-            scalable APIs with Python & Django.
-          </p>
-        </div>
-
-        <div class="footer-links-group">
-          <div class="footer-col">
-            <h4>Explore</h4>
-            <ul>
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#projects">Projects</a></li>
-              <li><a href="#skills">Skills</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-col">
-            <h4>Connect</h4>
-            <ul>
-              <li><a href="https://github.com/Raj-128">GitHub</a></li>
-              <li><a href="https://linkedin.com/in/rajpatil05">LinkedIn</a></li>
-              <li><a href="mailto:rajpatil052003@gmail.com">Email</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <span>&copy; 2025 Raj Patil. All rights reserved.</span>
-        <button
-          onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
-          class="back-to-top"
-          style="
-            background: none;
-            border: none;
-            color: #3b82f6;
-            cursor: pointer;
-          "
-        >
-          ↑ Back to Top
-        </button>
+      <div class="container footer-container">
+        <p>&copy; <span id="year"></span> Raj Patil. Backend Developer.</p>
+        <a href="#intro" aria-label="Back to top"><i class="ri-arrow-up-line"></i></a>
       </div>
     </footer>
 
-    <script>
-      /* Simple Scroll to Top Function */
-      function scrollToTop() {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-    </script>
-
-    <a href="Raj_Patil_Backend_Developer_Resume.pdf" class="resume-float"
-      >Download Resume</a
-    >
-
-    <!-- MODAL -->
-    <div class="modal" id="projectModal">
-      <div class="modal-content">
-  <span class="close" onclick="closeProject()">×</span>
-
-  <h3 id="modalTitle"></h3>
-  <img id="modalImage" />
-  <p id="modalDesc"></p>
-
-  <div class="project-buttons">
-  <a id="liveDemoBtn" target="_blank" class="btn primary">
-    🚀 Live Demo
-  </a>
-
-  <a id="githubBtn" target="_blank" class="btn outline">
-    💻 GitHub
-  </a>
-</div>
-</div>
+    <div class="project-modal" id="project-modal" aria-hidden="true">
+      <div class="modal-card">
+        <button class="modal-close" id="modal-close" aria-label="Close project">
+          <i class="ri-close-line"></i>
+        </button>
+        <img id="modal-img" src="" alt="" />
+        <span id="modal-stack"></span>
+        <h3 id="modal-title"></h3>
+        <p id="modal-desc"></p>
+        <div class="modal-actions">
+          <a id="modal-live" href="#" target="_blank" rel="noopener noreferrer" class="button">Live Demo</a>
+          <a id="modal-github" href="#" target="_blank" rel="noopener noreferrer" class="button ghost-button">GitHub</a>
+        </div>
+      </div>
     </div>
 
     <script>
-      function toggleMenu() {
-        document.getElementById("mobileMenu").classList.toggle("show");
-      }
-      function closeMenu() {
-        document.getElementById("mobileMenu").classList.remove("show");
+      const navPanel = document.getElementById("nav-panel");
+      const navToggle = document.getElementById("nav-toggle");
+      const navClose = document.getElementById("nav-close");
+      const navLinks = document.querySelectorAll(".nav-link");
+      const themeToggle = document.getElementById("theme-toggle");
+      const cursorDot = document.querySelector(".cursor-dot");
+
+      navToggle.addEventListener("click", () => navPanel.classList.add("show-menu"));
+      navClose.addEventListener("click", () => navPanel.classList.remove("show-menu"));
+      navLinks.forEach((link) =>
+        link.addEventListener("click", () => navPanel.classList.remove("show-menu")),
+      );
+
+      if (localStorage.theme === "light") {
+        document.body.classList.add("light-theme");
+        themeToggle.innerHTML = '<i class="ri-sun-line"></i>';
       }
 
-      /* DARK MODE */
-      const toggle = document.getElementById("themeToggle");
-      if (localStorage.theme === "dark") {
-        document.body.classList.add("dark");
-        toggle.textContent = "☀️";
-      }
-      toggle.onclick = () => {
-        document.body.classList.toggle("dark");
-        const dark = document.body.classList.contains("dark");
-        toggle.textContent = dark ? "☀️" : "🌙";
-        localStorage.theme = dark ? "dark" : "light";
-      };
+      themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("light-theme");
+        const light = document.body.classList.contains("light-theme");
+        themeToggle.innerHTML = light
+          ? '<i class="ri-sun-line"></i>'
+          : '<i class="ri-moon-line"></i>';
+        localStorage.theme = light ? "light" : "dark";
+      });
 
-      /* PROJECT DATA */
+      window.addEventListener("mousemove", (event) => {
+        cursorDot.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
+      });
+
+      const sections = document.querySelectorAll("section[id]");
+      window.addEventListener("scroll", () => {
+        const scrollY = window.scrollY;
+        document.getElementById("site-header").classList.toggle("header-blur", scrollY > 40);
+
+        sections.forEach((section) => {
+          const top = section.offsetTop - 120;
+          const height = section.offsetHeight;
+          const id = section.getAttribute("id");
+          const active = document.querySelector(`.nav-link[href="#${id}"]`);
+          if (scrollY >= top && scrollY < top + height) {
+            navLinks.forEach((link) => link.classList.remove("active-link"));
+            active?.classList.add("active-link");
+          }
+        });
+      });
+
       const projects = {
         eatify: {
           title: "Eatify",
+          stack: "Python / Django / REST",
           img: "assets/images/eatify.jpg",
-
           live: "https://eatify-eyn1.onrender.com/",
           github: "https://github.com/Raj-128/Eatify",
-
-          desc: `
-• A robust food ordering backend engineered with Django and Django REST Framework.
-• Manages complex cart logic, order lifecycles, and real-time status updates with data integrity.
-• Implements secure JWT authentication and optimized SQL queries for high-volume menu data.
-• Focuses on scalable API design to serve both web and mobile frontend clients efficiently.
-    `,
+          desc: "Food ordering backend built with Django REST Framework. It handles cart logic, order lifecycle, JWT authentication, and optimized SQL queries for menu data.",
         },
         documind: {
           title: "DocuMind | Enterprise AI",
+          stack: "Python / Django / AI",
           img: "assets/images/chat.png",
-
           live: "https://documind-zgo1.onrender.com/",
           github: "https://github.com/Raj-128/DocuMind",
-          desc: `
-• An intelligent RAG (Retrieval-Augmented Generation) chatbot built with Django.
-• Bridges the gap between static documents and dynamic user queries by allowing users to "chat" with their data.
-• Features context-aware memory for handling follow-up questions and maintaining conversation flow.
-• Implements secure document parsing and a responsive UI, demonstrating full-stack AI integration.
-    `,
+          desc: "RAG chatbot built with Django that allows users to chat with uploaded documents using context-aware answers and full-stack AI integration.",
         },
         smartstick: {
           title: "Smart Stick",
+          stack: "Python / IoT",
           img: "assets/images/smartstick.jpg",
-          desc: `
-• An IoT assistive device for the visually impaired, powered by Python and Raspberry Pi.
-• Utilizes ultrasonic sensors to calculate distance and detect obstacles in real-time.
-• Processes sensor data to trigger immediate, low-latency voice alerts for navigation safety.
-• Demonstrates hardware-software integration and efficient Python scripting for edge devices.
-    `,
+          live: "",
+          github: "",
+          desc: "IoT assistive device for visually impaired users, powered by Python and Raspberry Pi, with ultrasonic obstacle detection and voice alerts.",
         },
         cms: {
           title: "Complaint Management System",
+          stack: "ASP.NET / C#",
           img: "assets/images/cms-dashboard.jpg",
-          desc: `
-• An enterprise-grade grievance tracking platform developed using ASP.NET and C#.
-• Features strict Role-Based Access Control (RBAC) to separate Admin, Agent, and User workflows.
-• Includes a dynamic dashboard for real-time ticket status monitoring and reporting.
-• Built with a focus on secure data handling and maintainable MVC architecture.
-    `,
+          live: "",
+          github: "",
+          desc: "Role-based grievance tracking platform with admin, agent, and user workflows, real-time status monitoring, and MVC architecture.",
         },
       };
 
-      function openProject(key) {
-        document.getElementById("modalTitle").innerText = projects[key].title;
-        document.getElementById("modalImage").src = projects[key].img;
-        document.getElementById("modalDesc").innerText = projects[key].desc;
-        document.getElementById("projectModal").style.display = "flex";
-      }
-      function closeProject() {
-        document.getElementById("projectModal").style.display = "none";
-      }
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script>
-      gsap.registerPlugin(ScrollTrigger);
+      const modal = document.getElementById("project-modal");
+      const modalImg = document.getElementById("modal-img");
+      const modalStack = document.getElementById("modal-stack");
+      const modalTitle = document.getElementById("modal-title");
+      const modalDesc = document.getElementById("modal-desc");
+      const modalLive = document.getElementById("modal-live");
+      const modalGithub = document.getElementById("modal-github");
 
-      /* ========== SECTION REVEAL ========== */
-      gsap.utils.toArray(".reveal").forEach((section) => {
-        gsap.from(section, {
-          opacity: 0,
-          y: 60,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 80%",
-          },
+      document.querySelectorAll("[data-project]").forEach((card) => {
+        card.addEventListener("click", () => {
+          const project = projects[card.dataset.project];
+          modalImg.src = project.img;
+          modalImg.alt = project.title;
+          modalStack.textContent = project.stack;
+          modalTitle.textContent = project.title;
+          modalDesc.textContent = project.desc;
+          modalLive.href = project.live || "#";
+          modalGithub.href = project.github || "#";
+          modalLive.style.display = project.live ? "inline-flex" : "none";
+          modalGithub.style.display = project.github ? "inline-flex" : "none";
+          modal.classList.add("show-modal");
+          modal.setAttribute("aria-hidden", "false");
         });
       });
 
-      /* ========== STAGGER ITEMS ========== */
-      gsap.utils.toArray(".reveal-item").forEach((item, i) => {
-        gsap.from(item, {
-          opacity: 0,
-          y: 40,
-          duration: 0.6,
-          delay: i * 0.08,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: item,
-            start: "top 85%",
-          },
-        });
+      function closeModal() {
+        modal.classList.remove("show-modal");
+        modal.setAttribute("aria-hidden", "true");
+      }
+
+      document.getElementById("modal-close").addEventListener("click", closeModal);
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) closeModal();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeModal();
       });
 
-      /* ========== HERO TEXT ANIMATION ========== */
-      gsap.from(".hero h1", {
-        opacity: 0,
-        y: 40,
-        duration: 1,
-        ease: "power3.out",
+      document.getElementById("copy-email").addEventListener("click", async () => {
+        const button = document.getElementById("copy-email");
+        try {
+          await navigator.clipboard.writeText("rajpatil052003@gmail.com");
+          button.innerHTML = '<i class="ri-check-line"></i>Copied';
+        } catch (error) {
+          button.innerHTML = '<i class="ri-mail-send-line"></i>Email above';
+        }
+        setTimeout(() => {
+          button.innerHTML = '<i class="ri-file-copy-line"></i>Copy email';
+        }, 1600);
       });
 
-      gsap.from(".hero p", {
-        opacity: 0,
-        y: 20,
-        duration: 0.8,
-        delay: 0.3,
-      });
-
-      gsap.from(".hero-links a", {
-        opacity: 0,
-        y: 20,
-        duration: 0.6,
-        stagger: 0.15,
-        delay: 0.6,
-      });
-
-      /* ABOUT IMAGE APPEAR */
-      gsap.to(".about-image img", {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: "#about",
-          start: "top 75%",
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("show-reveal");
+          });
         },
-      });
+        { threshold: 0.14 },
+      );
+      document.querySelectorAll(".reveal").forEach((item) => revealObserver.observe(item));
 
-      /* ========== MODAL POP ANIMATION ========== */
-     function openProject(key) {
-  document.getElementById("modalTitle").innerText =
-    projects[key].title;
-
-  document.getElementById("modalImage").src =
-    projects[key].img;
-
-  document.getElementById("modalDesc").innerText =
-    projects[key].desc;
-
-  const liveBtn = document.getElementById("liveDemoBtn");
-  const githubBtn = document.getElementById("githubBtn");
-
-  // Live Demo
-  if (projects[key].live) {
-    liveBtn.style.display = "inline-block";
-    liveBtn.href = projects[key].live;
-  } else {
-    liveBtn.style.display = "none";
-  }
-
-  // GitHub
-  if (projects[key].github) {
-    githubBtn.style.display = "inline-block";
-    githubBtn.href = projects[key].github;
-  } else {
-    githubBtn.style.display = "none";
-  }
-
-  const modal = document.getElementById("projectModal");
-  modal.style.display = "flex";
-
-  gsap.from(".modal-content", {
-    scale: 0.85,
-    opacity: 0,
-    duration: 0.4,
-    ease: "back.out(1.7)",
-  });
-}
-    </script>
-    <script>
-      const hero = document.querySelector(".hero");
-
-      ScrollTrigger.create({
-        trigger: hero,
-        start: "top top",
-        end: "bottom top+=120",
-        onLeave: () => hero.classList.add("scrolled"),
-        onEnterBack: () => hero.classList.remove("scrolled"),
-      });
-    </script>
-    <script>
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
-    <div class="modal" id="skillModal">
-      <div class="modal-content skill-modal">
-        <span class="close" onclick="closeSkill()">×</span>
-        <h3 id="skillTitle"></h3>
-        <p id="skillDesc"></p>
-      </div>
-    </div>
-    <script>
-      const skills = {
-        python: {
-          title: "Python & Django",
-          desc: `
-• Backend development using Django ORM and MVC architecture  
-• Authentication, authorization, and role-based access control  
-• Scalable API and backend logic design  
-• Clean code, modular structure, and performance tuning  
-• Real-world backend systems, not just demos
-    `,
-        },
-
-        rest: {
-          title: "REST APIs",
-          desc: `
-• RESTful API design with proper status codes  
-• JWT & token-based authentication  
-• Pagination, filtering, and validation  
-• API performance and error handling  
-• Built for frontend & mobile consumption
-    `,
-        },
-
-        asp: {
-          title: "ASP.NET & C#",
-          desc: `
-• ASP.NET MVC & Web API development  
-• Role-based enterprise applications  
-• Secure backend workflows  
-• C# business logic and controllers  
-• Experience with real dashboards
-    `,
-        },
-
-        sql: {
-          title: "SQL & Databases",
-          desc: `
-• Relational database design  
-• Complex SQL queries and joins  
-• Indexing and query optimization  
-• Data consistency and integrity  
-• Backend-focused data modeling
-    `,
-        },
-
-        ai: {
-          title: "AI & ChatBots",
-          desc: `
-• Building RAG (Retrieval-Augmented Generation) pipelines for document interaction
-• Orchestrating tool-based Python agents for complex task automation
-• Integrating Large Language Models (LLMs) directly into Django backends
-• Implementing NLP memory and context handling for human-like conversations
-• Focused on practical, production-ready AI solutions rather than just theory
-    `,
-        },
-
-        ds: {
-          title: "Data Science",
-          desc: `
-• Data analysis and preprocessing  
-• Feature engineering and model training  
-• Real datasets, not toy problems  
-• Practical ML pipelines  
-• Backend + data integration mindset
-    `,
-        },
-      };
-
-      function openSkill(key) {
-        document.getElementById("skillTitle").innerText = skills[key].title;
-        document.getElementById("skillDesc").innerText = skills[key].desc;
-
-        const modal = document.getElementById("skillModal");
-        modal.style.display = "flex";
-
-        gsap.from(".skill-modal", {
-          scale: 0.85,
-          opacity: 0,
-          duration: 0.4,
-          ease: "back.out(1.7)",
-        });
-      }
-
-      function closeSkill() {
-        document.getElementById("skillModal").style.display = "none";
-      }
-    </script>
-
-    <script>
-      const text = "Backend Developer focused on Python & Django.";
-      let index = 0;
-
-      function typeWriter() {
-        if (index < text.length) {
-          document.getElementById("typewriter-text").innerHTML +=
-            text.charAt(index);
-          index++;
-          setTimeout(typeWriter, 60);
-        }
-      }
-
-      const aboutSection = document.getElementById("about");
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          if (entries[0].isIntersecting) {
-            typeWriter();
-            observer.disconnect();
-          }
-        },
-        { threshold: 0.4 },
-      );
-
-      observer.observe(aboutSection);
-    </script>
-    <script>
-      /* ===============================
-   GLOBAL CODE BACKGROUND SCRIPT
-   =============================== */
-
-      const canvas = document.getElementById("code-bg");
-      const ctx = canvas.getContext("2d");
-
-      let w, h;
-      const particles = [];
-
-      /* -------------------------------
-   Resize & Rebuild
--------------------------------- */
-      function resizeCanvas() {
-        w = canvas.width = window.innerWidth;
-        h = canvas.height = window.innerHeight;
-
-        particles.length = 0;
-        const density = Math.floor((w * h) / 42000);
-
-        for (let i = 0; i < density; i++) {
-          particles.push(createParticle());
-        }
-      }
-
-      window.addEventListener("resize", resizeCanvas);
-
-      /* -------------------------------
-   Mouse Interaction
--------------------------------- */
-      const mouse = {
-        x: null,
-        y: null,
-        radius: 120,
-      };
-
-      window.addEventListener("mousemove", (e) => {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
-      });
-
-      window.addEventListener("mouseleave", () => {
-        mouse.x = null;
-        mouse.y = null;
-      });
-
-      /* -------------------------------
-   Symbols
--------------------------------- */
-      const symbols = ["{", "}", "<", ">", "/", ";", "=", "(", ")", "[", "]"];
-
-      /* -------------------------------
-   Particle Factory
--------------------------------- */
-      function createParticle() {
-        const angle = Math.random() * Math.PI * 2;
-        const speed = 0.08 + Math.random() * 0.18;
-
-        const dx = Math.cos(angle) * speed;
-        const dy = Math.sin(angle) * speed;
-
-        return {
-          x: Math.random() * w,
-          y: Math.random() * h,
-
-          dx,
-          dy,
-          baseDx: dx,
-          baseDy: dy,
-
-          rotation: Math.random() * Math.PI * 2,
-          rotationSpeed: (Math.random() - 0.5) * 0.003,
-
-          size: 28 + Math.random() * 10,
-          char: symbols[Math.floor(Math.random() * symbols.length)],
-          alpha: 0.22 + Math.random() * 0.35,
-        };
-      }
-
-      /* -------------------------------
-   Animation Loop
--------------------------------- */
-      function animate() {
-        ctx.clearRect(0, 0, w, h);
-
-        const isDark = document.body.classList.contains("dark");
-        ctx.fillStyle = isDark
-          ? "rgba(96,165,250,0.8)"
-          : "rgba(37,99,235,0.75)";
-
-        ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
-
-        particles.forEach((p) => {
-          /* Hover influence (soft blob) */
-          if (mouse.x !== null) {
-            const dx = p.x - mouse.x;
-            const dy = p.y - mouse.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-
-            if (dist < mouse.radius) {
-              const force = Math.pow((mouse.radius - dist) / mouse.radius, 1.5);
-              const angle = Math.atan2(dy, dx);
-
-              // Repulsion
-              p.dx += Math.cos(angle) * force * 0.12;
-              p.dy += Math.sin(angle) * force * 0.12;
-
-              // Subtle swirl
-              p.dx += -Math.sin(angle) * force * 0.04;
-              p.dy += Math.cos(angle) * force * 0.04;
-            }
-          }
-
-          /* Return to base motion */
-          p.dx += (p.baseDx - p.dx) * 0.02;
-          p.dy += (p.baseDy - p.dy) * 0.02;
-
-          /* Draw symbol */
-          ctx.save();
-          ctx.globalAlpha = p.alpha;
-          ctx.translate(p.x, p.y);
-          ctx.rotate(p.rotation);
-          ctx.font = `bold ${p.size}px monospace`;
-          ctx.fillText(p.char, 0, 0);
-          ctx.restore();
-
-          /* Update position */
-          p.x += p.dx;
-          p.y += p.dy;
-          p.rotation += p.rotationSpeed;
-
-          /* Screen wrap */
-          if (p.x < -80) p.x = w + 80;
-          if (p.x > w + 80) p.x = -80;
-          if (p.y < -80) p.y = h + 80;
-          if (p.y > h + 80) p.y = -80;
-        });
-
-        requestAnimationFrame(animate);
-      }
-
-      /* -------------------------------
-   Init
--------------------------------- */
-      resizeCanvas();
-      animate();
-      /* ========== NAVBAR SCROLLSPY ========== */
-      const sections = document.querySelectorAll("section[id]");
-      const navLinks = document.querySelectorAll(".nav-link");
-
-      window.addEventListener("scroll", () => {
-        let current = "";
-
-        sections.forEach((section) => {
-          const sectionTop = section.offsetTop;
-          const sectionHeight = section.clientHeight;
-
-          // Check if the scroll position is within the section (with a 150px offset)
-          if (pageYOffset >= sectionTop - 150) {
-            current = section.getAttribute("id");
-          }
-        });
-
-        navLinks.forEach((link) => {
-          link.classList.remove("active");
-          if (link.getAttribute("href").includes(current)) {
-            link.classList.add("active");
-          }
-        });
-      });
-      /* ========== SMOOTH SCROLL & ACTIVE LINK ========== */
-
-      // 1. Smooth Scroll for clicks
-      document.querySelectorAll(".nav-link").forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const targetId = this.getAttribute("href");
-          const targetSection = document.querySelector(targetId);
-
-          if (targetSection) {
-            window.scrollTo({
-              top: targetSection.offsetTop - 80, // Adjust for navbar height
-              behavior: "smooth",
-            });
-          }
-
-          // Close mobile menu if open
-          if (typeof closeMenu === "function") closeMenu();
-        });
-      });
-
-      // 2. Scrollspy Logic
-      window.addEventListener("scroll", () => {
-        let current = "";
-        const scrollPos = window.scrollY + 120; // Offset for better timing
-
-        sections.forEach((section) => {
-          if (scrollPos >= section.offsetTop) {
-            current = section.getAttribute("id");
-          }
-        });
-
-        navLinks.forEach((link) => {
-          link.classList.remove("active");
-          if (link.getAttribute("href") === `#${current}`) {
-            link.classList.add("active");
-          }
-        });
-      });
-    </script>
-<script>
-  // 1. Select the hero and the spline-viewer
-  const heroSection = document.querySelector('.hero');
-  const spline = document.querySelector('spline-viewer');
-  
-  // 2. Create a global function to handle movement
-  const handleGlobalMove = (e) => {
-    // Get mouse/touch coordinates
-    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-
-    // --- Part A: Update the Spotlight Glow ---
-    // We still need the spotlight relative to the hero box
-    const rect = heroSection.getBoundingClientRect();
-    const x = clientX - rect.left;
-    const y = clientY - rect.top;
-    
-    heroSection.style.setProperty('--mouse-x', `${x}px`);
-    heroSection.style.setProperty('--mouse-y', `${y}px`);
-
-    // --- Part B: Forward Mouse Events to the Robot ---
-    // This tells the Spline engine where the mouse is, even if it's 
-    // over the "About" or "Projects" sections.
-    if (spline) {
-      const mouseEvent = new MouseEvent('mousemove', {
-        clientX: clientX,
-        clientY: clientY,
-        bubbles: true,
-        composed: true // Required to penetrate the Spline Shadow DOM
-      });
-      spline.dispatchEvent(mouseEvent);
-    }
-  };
-
-  // 3. Listen to the entire window instead of just the hero div
-  window.addEventListener('mousemove', handleGlobalMove);
-  window.addEventListener('touchmove', handleGlobalMove);
-</script>
   </body>
 </html>
