@@ -999,14 +999,126 @@ main {
   transform: none;
 }
 
-/* Work slides up over the pinned globe like a new page. */
-.work {
+/* The intro slides up over the pinned globe like a new page. */
+.intro {
   position: relative;
   z-index: 1;
   margin-top: -100vh;
   border-radius: 2.5rem 2.5rem 0 0;
-  background: var(--bg);
+  background:
+    radial-gradient(circle at 12% 20%, rgba(168, 85, 247, 0.28), transparent 28rem),
+    radial-gradient(circle at 86% 30%, rgba(34, 211, 238, 0.2), transparent 27rem),
+    var(--bg);
   box-shadow: 0 -30px 80px rgba(0, 0, 0, 0.45);
+}
+
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  animation: twinkle 4s ease-in-out infinite alternate;
+}
+
+body.light-theme .stars {
+  display: none;
+}
+
+@keyframes twinkle {
+  from {
+    opacity: 0.45;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.globe-hello {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  pointer-events: none;
+}
+
+.globe-hello span,
+.globe-hello p {
+  margin: 0;
+  color: var(--accent-two);
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  animation: fade-up 1s 0.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.globe-hello p {
+  color: var(--muted);
+  animation-delay: 0.6s;
+}
+
+.globe-hello h2 {
+  margin: 0.4rem 0;
+  font-size: clamp(4rem, 17vw, 16rem);
+  line-height: 0.9;
+  letter-spacing: -0.07em;
+  background: linear-gradient(180deg, var(--text) 30%, rgba(168, 85, 247, 0.55));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: fade-up 1.2s 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.globe-wrap {
+  position: relative;
+  animation: globe-rise 1.6s 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes globe-rise {
+  from {
+    opacity: 0;
+    transform: translateY(45vh) scale(0.6);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  animation: fade-up 1s 1.4s both;
+}
+
+.scroll-hint span {
+  width: 22px;
+  height: 36px;
+  border: 2px solid var(--muted);
+  border-radius: 12px;
+  background: radial-gradient(circle, var(--accent-two) 2px, transparent 3px) center 6px / 6px 6px no-repeat;
+  animation: scroll-dot 1.6s ease-in-out infinite;
+}
+
+@keyframes scroll-dot {
+  50% {
+    background-position: center 18px;
+  }
 }
 
 .scroll-progress {
@@ -1035,6 +1147,9 @@ main {
 .intro h1 .word > span {
   display: inline-block;
   transform: translateY(110%);
+}
+
+.intro-copy.show-reveal h1 .word > span {
   animation: word-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   animation-delay: calc(var(--i) * 70ms + 200ms);
 }
@@ -1051,7 +1166,10 @@ main {
 
 @media (prefers-reduced-motion: reduce) {
   .reveal,
-  .intro h1 .word > span {
+  .intro h1 .word > span,
+  .globe-hello *,
+  .globe-wrap,
+  .scroll-hint {
     transform: none !important;
     opacity: 1;
     filter: none;

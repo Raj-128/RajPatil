@@ -70,6 +70,26 @@
     </header>
 
     <main>
+      <section class="globe-scroll" id="globe" aria-label="Raj Patil, Full-Stack Developer based in Surat">
+        <div class="globe-sticky">
+          <div class="stars" aria-hidden="true"></div>
+          <div class="globe-hello">
+            <span>Hello, I'm</span>
+            <h2>Raj Patil</h2>
+            <p>Full-Stack Developer</p>
+          </div>
+          <div class="globe-wrap">
+            <canvas class="globe-canvas" aria-hidden="true"></canvas>
+          </div>
+          <div class="globe-captions">
+            <p class="globe-caption"><span>Based in</span>Surat, India</p>
+            <p class="globe-caption"><span>Building</span>APIs, web apps &amp; mobile</p>
+            <p class="globe-caption"><span>Shipping</span>products people use every day</p>
+          </div>
+          <a href="#intro" class="scroll-hint" aria-label="Scroll to intro"><span></span>Scroll</a>
+        </div>
+      </section>
+
       <section class="intro section" id="intro">
         <div class="intro-container container">
           <aside class="intro-social reveal from-left">
@@ -133,17 +153,6 @@
               <strong>AI</strong>
               <span>LLM &amp; RAG features</span>
             </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="globe-scroll" id="globe" aria-label="Based in Surat, building for everyone">
-        <div class="globe-sticky">
-          <canvas class="globe-canvas" aria-hidden="true"></canvas>
-          <div class="globe-captions">
-            <p class="globe-caption"><span>Based in</span>Surat, India</p>
-            <p class="globe-caption"><span>Building</span>APIs, web apps &amp; mobile</p>
-            <p class="globe-caption"><span>Shipping</span>products people use every day</p>
           </div>
         </div>
       </section>
@@ -426,6 +435,7 @@
       const header = document.getElementById("site-header");
       const progress = document.querySelector(".scroll-progress");
       const portrait = document.querySelector(".portrait-shell");
+      const intro = document.getElementById("intro");
       let lastY = 0;
       window.addEventListener("scroll", () => {
         const scrollY = window.scrollY;
@@ -433,7 +443,8 @@
         header.classList.toggle("header-hidden", scrollY > 300 && scrollY > lastY);
         lastY = scrollY;
         progress.style.transform = `scaleX(${scrollY / (document.documentElement.scrollHeight - innerHeight)})`;
-        if (scrollY < innerHeight) portrait.style.setProperty("--parallax", `${scrollY * 0.18}px`);
+        const introTop = intro.getBoundingClientRect().top;
+        if (introTop < innerHeight) portrait.style.setProperty("--parallax", `${Math.max(-introTop, 0) * 0.18}px`);
 
         sections.forEach((section) => {
           const top = section.offsetTop - 120;
@@ -582,6 +593,13 @@
       const section = document.getElementById("globe");
       const canvas = section.querySelector(".globe-canvas");
       const captions = section.querySelectorAll(".globe-caption");
+      const hello = section.querySelector(".globe-hello");
+      const hint = section.querySelector(".scroll-hint");
+      const stars = section.querySelector(".stars");
+      stars.style.boxShadow = Array.from({ length: 160 }, () =>
+        `${Math.random() * 100}vw ${Math.random() * 100}vh 0 ${Math.random() < 0.15 ? 1 : 0}px rgba(255,255,255,${0.3 + Math.random() * 0.6})`,
+      ).join(",");
+      let drift = 0;
       // Angles that face Surat (21.17N, 72.83E) toward the viewer.
       const targetPhi = Math.PI - ((72.83 * Math.PI) / 180 - Math.PI / 2);
       const targetTheta = (21.17 * Math.PI) / 180;
@@ -595,13 +613,17 @@
         size = canvas.offsetWidth;
         const box = section.getBoundingClientRect();
         progress = clamp(-box.top / (box.height - innerHeight));
-        // 0-0.5: globe spins to Surat; 0.5-1: it zooms out of view as Work slides up over it.
+        // 0-0.5: globe spins to Surat; 0.5-1: it zooms out of view as the intro slides up over it.
         const spin = ease(clamp(progress / 0.5));
         const zoom = clamp((progress - 0.5) / 0.5);
         canvas.style.transform = `scale(${0.55 + spin * 0.45 + zoom * 1.6})`;
         canvas.style.opacity = 1 - zoom;
+        hello.style.opacity = 1 - clamp(progress / 0.12);
+        hello.style.transform = `translateY(${-progress * 40}vh)`;
+        hint.style.opacity = 1 - clamp(progress / 0.05);
+        stars.style.transform = `translateY(${-progress * 25}vh)`;
         captions.forEach((caption, i) => {
-          const local = (progress / 0.55) * captions.length - i;
+          const local = ((progress - 0.12) / 0.43) * captions.length - i;
           caption.classList.toggle("active", local >= 0 && local < 1 && zoom < 0.6);
         });
       }
@@ -622,7 +644,9 @@
         markers: [{ location: [21.17, 72.83], size: 0.09 }],
         onRender: (state) => {
           const spin = ease(clamp(progress / 0.5));
-          state.phi = targetPhi - (1 - spin) * Math.PI * 2;
+          // Idle spin only at the very top, so the offset never wraps mid-scroll.
+          if (progress < 0.01) drift = (drift + 0.003) % (Math.PI * 2);
+          state.phi = targetPhi - (1 - spin) * (Math.PI * 2 + drift);
           state.theta = targetTheta * spin;
           state.width = size * 2;
           state.height = size * 2;

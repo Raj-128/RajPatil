@@ -48,7 +48,7 @@ Role-based grievance tracking dashboard in ASP.NET / C# with admin, agent and us
 
 ## Site Features
 - Full-width responsive layout with dark/light theme toggle
-- Scroll-pinned 3D globe ([cobe](https://github.com/shuding/cobe)) that spins to Surat, then the Work section slides up over it like a new page
+- Opening screen: name over a starfield and 3D globe ([cobe](https://github.com/shuding/cobe)); scrolling spins the globe to Surat, then the intro slides up over it like a new page
 - Word-by-word hero title, directional and staggered scroll reveals, portrait parallax
 - Scroll progress bar, hide-on-scroll header, 3D tilt on project cards
 - Respects `prefers-reduced-motion`
