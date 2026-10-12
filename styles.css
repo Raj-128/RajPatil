@@ -122,7 +122,7 @@ body.light-theme .page-grid {
   left: 0;
   z-index: 100;
   width: 100%;
-  transition: background 0.3s, box-shadow 0.3s;
+  transition: background 0.3s, box-shadow 0.3s, transform 0.35s ease;
 }
 
 .header-blur {
@@ -914,14 +914,150 @@ body.light-theme .header-blur {
 }
 
 .reveal {
-  transform: translateY(26px);
+  transform: translateY(60px) scale(0.97);
   opacity: 0;
-  transition: transform 0.75s ease, opacity 0.75s ease;
+  filter: blur(8px);
+  transition:
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 1s ease,
+    filter 1s ease;
 }
 
-.show-reveal {
-  transform: translateY(0);
+.reveal.from-left {
+  transform: translateX(-90px);
+}
+
+.reveal.from-right {
+  transform: translateX(90px);
+}
+
+.reveal.zoom {
+  transform: scale(0.82);
+}
+
+.reveal.show-reveal {
+  transform: none;
   opacity: 1;
+  filter: none;
+}
+
+/* Clip off-screen fly-in transforms without breaking position: sticky. */
+main {
+  overflow-x: clip;
+}
+
+.globe-scroll {
+  position: relative;
+  height: 320vh;
+}
+
+.globe-sticky {
+  position: sticky;
+  top: 0;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.globe-canvas {
+  width: min(88vw, 62vh, 640px);
+  aspect-ratio: 1;
+  will-change: transform, opacity;
+}
+
+.globe-captions {
+  position: absolute;
+  inset: auto 0 12vh;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.globe-caption {
+  grid-area: 1 / 1;
+  margin: 0;
+  font-size: clamp(1.8rem, 4.5vw, 3.6rem);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.globe-caption span {
+  display: block;
+  color: var(--accent-two);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.globe-caption.active {
+  opacity: 1;
+  transform: none;
+}
+
+/* Work slides up over the pinned globe like a new page. */
+.work {
+  position: relative;
+  z-index: 1;
+  margin-top: -100vh;
+  border-radius: 2.5rem 2.5rem 0 0;
+  background: var(--bg);
+  box-shadow: 0 -30px 80px rgba(0, 0, 0, 0.45);
+}
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-two), #a855f7);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.site-header.header-hidden {
+  transform: translateY(-100%);
+}
+
+.intro h1 .word {
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+  vertical-align: top;
+}
+
+.intro h1 .word > span {
+  display: inline-block;
+  transform: translateY(110%);
+  animation: word-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--i) * 70ms + 200ms);
+}
+
+@keyframes word-rise {
+  to {
+    transform: none;
+  }
+}
+
+.portrait-shell {
+  translate: 0 var(--parallax, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .intro h1 .word > span {
+    transform: none !important;
+    opacity: 1;
+    filter: none;
+    animation: none;
+    transition: none;
+  }
 }
 
 @media (max-width: 1024px) {

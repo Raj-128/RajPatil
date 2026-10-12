@@ -38,6 +38,7 @@
   <body>
     <div class="page-grid" aria-hidden="true"></div>
     <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="scroll-progress" aria-hidden="true"></div>
 
     <header class="site-header" id="site-header">
       <nav class="nav container">
@@ -71,7 +72,7 @@
     <main>
       <section class="intro section" id="intro">
         <div class="intro-container container">
-          <aside class="intro-social reveal">
+          <aside class="intro-social reveal from-left">
             <span>Connect</span>
             <a href="https://github.com/Raj-128" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <i class="ri-github-fill"></i>
@@ -103,7 +104,7 @@
             </div>
           </div>
 
-          <div class="intro-visual reveal">
+          <div class="intro-visual reveal zoom">
             <div class="portrait-shell">
               <img src="assets/images/profile2.jpg" alt="Raj Patil" />
               <div class="orbit orbit-one"></div>
@@ -136,6 +137,17 @@
         </div>
       </section>
 
+      <section class="globe-scroll" id="globe" aria-label="Based in Surat, building for everyone">
+        <div class="globe-sticky">
+          <canvas class="globe-canvas" aria-hidden="true"></canvas>
+          <div class="globe-captions">
+            <p class="globe-caption"><span>Based in</span>Surat, India</p>
+            <p class="globe-caption"><span>Building</span>APIs, web apps &amp; mobile</p>
+            <p class="globe-caption"><span>Shipping</span>products people use every day</p>
+          </div>
+        </div>
+      </section>
+
       <section class="work section" id="work">
         <div class="container">
           <div class="section-heading reveal">
@@ -144,7 +156,7 @@
           </div>
 
           <div class="work-layout">
-            <article class="work-feature reveal" data-project="documind">
+            <article class="work-feature reveal from-left" data-project="documind">
               <img src="assets/images/chat.png" alt="DocuMind RAG chatbot" />
               <div class="work-feature-content">
                 <span>Featured AI project</span>
@@ -158,7 +170,7 @@
             </article>
 
             <div class="work-list">
-              <article class="work-item reveal" data-project="eatify">
+              <article class="work-item reveal from-right" data-project="eatify">
                 <img src="assets/images/eatify.jpg" alt="Eatify food ordering backend" />
                 <div>
                   <span>Python / Django / REST</span>
@@ -167,7 +179,7 @@
                 </div>
               </article>
 
-              <article class="work-item reveal" data-project="smartstick">
+              <article class="work-item reveal from-right" data-project="smartstick">
                 <img src="assets/images/smartstick.jpg" alt="Smart Stick IoT project" />
                 <div>
                   <span>Python / IoT</span>
@@ -176,7 +188,7 @@
                 </div>
               </article>
 
-              <article class="work-item reveal" data-project="cms">
+              <article class="work-item reveal from-right" data-project="cms">
                 <img src="assets/images/cms-dashboard.jpg" alt="Complaint management dashboard" />
                 <div>
                   <span>ASP.NET / C#</span>
@@ -270,7 +282,7 @@
           </div>
 
           <div class="profile-grid">
-            <article class="profile-story reveal">
+            <article class="profile-story reveal from-left">
               <h3>About</h3>
               <p>
                 I’m a full-stack developer with a backend core who enjoys building systems that
@@ -284,7 +296,7 @@
               </p>
             </article>
 
-            <article class="timeline reveal">
+            <article class="timeline reveal from-right">
               <h3>Build mindset</h3>
               <div class="timeline-item">
                 <span>01</span>
@@ -327,7 +339,7 @@
 
       <section class="contact section" id="contact">
         <div class="contact-container container">
-          <div class="contact-copy reveal">
+          <div class="contact-copy reveal from-left">
             <span class="eyebrow">Let’s build</span>
             <h2>Have a role or project?</h2>
             <p>
@@ -336,7 +348,7 @@
             </p>
           </div>
 
-          <div class="contact-panel reveal">
+          <div class="contact-panel reveal from-right">
             <a href="mailto:rajpatil052003@gmail.com" class="mail-link">
               <i class="ri-mail-send-line"></i>
               rajpatil052003@gmail.com
@@ -411,9 +423,17 @@
       });
 
       const sections = document.querySelectorAll("section[id]");
+      const header = document.getElementById("site-header");
+      const progress = document.querySelector(".scroll-progress");
+      const portrait = document.querySelector(".portrait-shell");
+      let lastY = 0;
       window.addEventListener("scroll", () => {
         const scrollY = window.scrollY;
-        document.getElementById("site-header").classList.toggle("header-blur", scrollY > 40);
+        header.classList.toggle("header-blur", scrollY > 40);
+        header.classList.toggle("header-hidden", scrollY > 300 && scrollY > lastY);
+        lastY = scrollY;
+        progress.style.transform = `scaleX(${scrollY / (document.documentElement.scrollHeight - innerHeight)})`;
+        if (scrollY < innerHeight) portrait.style.setProperty("--parallax", `${scrollY * 0.18}px`);
 
         sections.forEach((section) => {
           const top = section.offsetTop - 120;
@@ -513,6 +533,37 @@
         }, 1600);
       });
 
+      const title = document.querySelector(".intro h1");
+      title.innerHTML = title.textContent
+        .trim()
+        .split(/\s+/)
+        .map((word, i) => `<span class="word"><span style="--i:${i}">${word}</span></span>`)
+        .join(" ");
+
+      // Stagger siblings so grids cascade in instead of popping together.
+      document.querySelectorAll(".reveal").forEach((item) => {
+        const siblings = [...item.parentElement.children].filter((el) => el.classList.contains("reveal"));
+        item.style.transitionDelay = `${siblings.indexOf(item) * 110}ms`;
+        item.addEventListener("transitionend", () => (item.style.transitionDelay = ""), { once: true });
+      });
+
+      const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!reduceMotion && matchMedia("(hover: hover)").matches) {
+        document.querySelectorAll(".work-feature, .work-item, .build-card, .capability-card").forEach((card) => {
+          card.addEventListener("mousemove", (event) => {
+            const box = card.getBoundingClientRect();
+            const x = (event.clientX - box.left) / box.width - 0.5;
+            const y = (event.clientY - box.top) / box.height - 0.5;
+            card.style.transition = "transform 0.15s ease-out, border-color 0.25s";
+            card.style.transform = `perspective(900px) rotateX(${-y * 6}deg) rotateY(${x * 6}deg) translateY(-6px)`;
+          });
+          card.addEventListener("mouseleave", () => {
+            card.style.transition = "transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s";
+            card.style.transform = "";
+          });
+        });
+      }
+
       const revealObserver = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -524,6 +575,66 @@
       document.querySelectorAll(".reveal").forEach((item) => revealObserver.observe(item));
 
       document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script type="module">
+      import createGlobe from "https://cdn.jsdelivr.net/npm/cobe@0.6.3/+esm";
+
+      const section = document.getElementById("globe");
+      const canvas = section.querySelector(".globe-canvas");
+      const captions = section.querySelectorAll(".globe-caption");
+      // Angles that face Surat (21.17N, 72.83E) toward the viewer.
+      const targetPhi = Math.PI - ((72.83 * Math.PI) / 180 - Math.PI / 2);
+      const targetTheta = (21.17 * Math.PI) / 180;
+      let progress = 0;
+      let size = 0;
+
+      const clamp = (v) => Math.min(Math.max(v, 0), 1);
+      const ease = (t) => 1 - Math.pow(1 - t, 3);
+
+      function measure() {
+        size = canvas.offsetWidth;
+        const box = section.getBoundingClientRect();
+        progress = clamp(-box.top / (box.height - innerHeight));
+        // 0-0.5: globe spins to Surat; 0.5-1: it zooms out of view as Work slides up over it.
+        const spin = ease(clamp(progress / 0.5));
+        const zoom = clamp((progress - 0.5) / 0.5);
+        canvas.style.transform = `scale(${0.55 + spin * 0.45 + zoom * 1.6})`;
+        canvas.style.opacity = 1 - zoom;
+        captions.forEach((caption, i) => {
+          const local = (progress / 0.55) * captions.length - i;
+          caption.classList.toggle("active", local >= 0 && local < 1 && zoom < 0.6);
+        });
+      }
+
+      createGlobe(canvas, {
+        devicePixelRatio: 2,
+        width: 1200,
+        height: 1200,
+        phi: 0,
+        theta: 0,
+        dark: 1,
+        diffuse: 1.2,
+        mapSamples: 16000,
+        mapBrightness: 6,
+        baseColor: [0.25, 0.25, 0.35],
+        markerColor: [0.13, 0.83, 0.93],
+        glowColor: [0.45, 0.25, 0.85],
+        markers: [{ location: [21.17, 72.83], size: 0.09 }],
+        onRender: (state) => {
+          const spin = ease(clamp(progress / 0.5));
+          state.phi = targetPhi - (1 - spin) * Math.PI * 2;
+          state.theta = targetTheta * spin;
+          state.width = size * 2;
+          state.height = size * 2;
+          const light = document.body.classList.contains("light-theme");
+          state.dark = light ? 0 : 1;
+          state.baseColor = light ? [1, 1, 1] : [0.25, 0.25, 0.35];
+        },
+      });
+
+      measure();
+      addEventListener("scroll", measure, { passive: true });
+      addEventListener("resize", measure);
     </script>
   </body>
 </html>
