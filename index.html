@@ -38,6 +38,7 @@
   <body>
     <div class="page-grid" aria-hidden="true"></div>
     <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-point" aria-hidden="true"></div>
     <div class="scroll-progress" aria-hidden="true"></div>
 
     <header class="site-header header-cover" id="site-header">
@@ -416,8 +417,22 @@
         localStorage.theme = light ? "light" : "dark";
       });
 
+      // Point tracks the mouse exactly; ring eases after it every frame for a smooth trail.
+      const cursorPoint = document.querySelector(".cursor-point");
+      let mouseX = -100, mouseY = -100, ringX = -100, ringY = -100;
       window.addEventListener("mousemove", (event) => {
-        cursorDot.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
+        mouseX = event.clientX;
+        mouseY = event.clientY;
+        cursorPoint.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+      });
+      (function followCursor() {
+        ringX += (mouseX - ringX) * 0.25;
+        ringY += (mouseY - ringY) * 0.25;
+        cursorDot.style.transform = `translate(${ringX}px, ${ringY}px)`;
+        requestAnimationFrame(followCursor);
+      })();
+      document.addEventListener("mouseover", (event) => {
+        cursorDot.classList.toggle("cursor-hover", !!event.target.closest("a, button, [data-project]"));
       });
 
       const sections = document.querySelectorAll("section[id]");

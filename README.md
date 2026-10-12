@@ -49,6 +49,7 @@ Role-based grievance tracking dashboard in ASP.NET / C# with admin, agent and us
 - Word-by-word hero title, directional and staggered scroll reveals, portrait parallax
 - Minimal header (name + theme toggle) on the opening screen; full sticky navbar once the intro arrives
 - Scroll progress bar, 3D tilt on project cards
+- Custom cursor (exact point + smooth trailing ring) replacing the system cursor on mouse devices
 - Respects `prefers-reduced-motion`
 - Scrollspy navigation
 - Project modal with live demo and GitHub links

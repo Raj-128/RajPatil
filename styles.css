@@ -113,8 +113,42 @@ body.light-theme .page-grid {
   border: 1px solid rgba(34, 211, 238, 0.7);
   border-radius: 50%;
   pointer-events: none;
-  transition: transform 0.08s linear;
+  transition: scale 0.25s ease, background 0.25s;
+  will-change: transform;
   mix-blend-mode: difference;
+}
+
+.cursor-dot.cursor-hover {
+  scale: 1.9;
+  background: rgba(34, 211, 238, 0.15);
+}
+
+.cursor-point {
+  position: fixed;
+  top: -3px;
+  left: -3px;
+  z-index: 10000;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-two);
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Custom cursor replaces the system one on mouse devices only. */
+@media (hover: hover) and (pointer: fine) {
+  html,
+  html * {
+    cursor: none !important;
+  }
+}
+
+@media not all and (pointer: fine) {
+  .cursor-dot,
+  .cursor-point {
+    display: none;
+  }
 }
 
 .site-header {
