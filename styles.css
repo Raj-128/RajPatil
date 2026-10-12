@@ -122,7 +122,7 @@ body.light-theme .page-grid {
   left: 0;
   z-index: 100;
   width: 100%;
-  transition: background 0.3s, box-shadow 0.3s, transform 0.35s ease;
+  transition: background 0.3s, box-shadow 0.3s;
 }
 
 .header-blur {
@@ -1133,8 +1133,16 @@ body.light-theme .stars {
   transform-origin: left;
 }
 
-.site-header.header-hidden {
-  transform: translateY(-100%);
+.header-cover .nav-panel,
+.header-cover .nav-toggle {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-12px);
+}
+
+.nav-panel,
+.nav-toggle {
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
 }
 
 .intro h1 .word {

@@ -40,7 +40,7 @@
     <div class="cursor-dot" aria-hidden="true"></div>
     <div class="scroll-progress" aria-hidden="true"></div>
 
-    <header class="site-header" id="site-header">
+    <header class="site-header header-cover" id="site-header">
       <nav class="nav container">
         <a href="#intro" class="brand">
           <img src="assets/images/logo.png" alt="Raj Patil logo" />
@@ -436,12 +436,12 @@
       const progress = document.querySelector(".scroll-progress");
       const portrait = document.querySelector(".portrait-shell");
       const intro = document.getElementById("intro");
-      let lastY = 0;
       window.addEventListener("scroll", () => {
         const scrollY = window.scrollY;
-        header.classList.toggle("header-blur", scrollY > 40);
-        header.classList.toggle("header-hidden", scrollY > 300 && scrollY > lastY);
-        lastY = scrollY;
+        // Opening globe: only the floating name and theme toggle; full navbar once the intro arrives.
+        const onCover = intro.getBoundingClientRect().top > 80;
+        header.classList.toggle("header-cover", onCover);
+        header.classList.toggle("header-blur", !onCover);
         progress.style.transform = `scaleX(${scrollY / (document.documentElement.scrollHeight - innerHeight)})`;
         const introTop = intro.getBoundingClientRect().top;
         if (introTop < innerHeight) portrait.style.setProperty("--parallax", `${Math.max(-introTop, 0) * 0.18}px`);
@@ -457,6 +457,8 @@
           }
         });
       });
+
+      window.dispatchEvent(new Event("scroll"));
 
       const projects = {
         eatify: {
