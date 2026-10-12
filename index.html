@@ -142,11 +142,11 @@
 
           <div class="intro-metrics reveal">
             <article>
-              <strong>07</strong>
+              <strong>06</strong>
               <span>Featured projects</span>
             </article>
             <article>
-              <strong>04</strong>
+              <strong>03</strong>
               <span>Live products</span>
             </article>
             <article>
@@ -214,17 +214,6 @@
           </div>
 
           <div class="build-grid">
-            <article class="build-card reveal">
-              <img src="assets/images/flamezo.jpg" alt="Flamezo outlet discovery home page" loading="lazy" />
-              <em class="status live">Onomatrix Labs / Live</em>
-              <span>Frappe / FastAPI / Next.js / Flutter</span>
-              <h3>Flamezo</h3>
-              <p>Built at Onomatrix Labs Private Limited: a two-sided local-business platform with outlet discovery, offers, bill payments, table bookings, a cross-outlet loyalty wallet, and a merchant dashboard with AI menu tools and Razorpay split settlements.</p>
-              <div class="build-links">
-                <a href="https://flamezo.in" target="_blank" rel="noopener noreferrer">Live <i class="ri-arrow-right-up-line"></i></a>
-              </div>
-            </article>
-
             <article class="build-card reveal">
               <img src="assets/images/viana.jpg" alt="Studio Viana wallpaper home page" loading="lazy" />
               <em class="status live">Live</em>
@@ -599,7 +588,7 @@
       const hint = section.querySelector(".scroll-hint");
       const stars = section.querySelector(".stars");
       stars.style.boxShadow = Array.from({ length: 160 }, () =>
-        `${Math.random() * 100}vw ${Math.random() * 100}vh 0 ${Math.random() < 0.15 ? 1 : 0}px rgba(255,255,255,${0.3 + Math.random() * 0.6})`,
+        `${Math.random() * 100}vw ${Math.random() * 100}vh 0 ${Math.random() < 0.15 ? 1 : 0}px currentColor`,
       ).join(",");
       let drift = 0;
       // Angles that face Surat (21.17N, 72.83E) toward the viewer.
@@ -654,7 +643,8 @@
           state.height = size * 2;
           const light = document.body.classList.contains("light-theme");
           state.dark = light ? 0 : 1;
-          state.baseColor = light ? [1, 1, 1] : [0.25, 0.25, 0.35];
+          state.glowColor = light ? [0.95, 0.75, 0.55] : [0.45, 0.25, 0.85];
+          state.baseColor = light ? [1, 0.96, 0.9] : [0.25, 0.25, 0.35];
         },
       });
 

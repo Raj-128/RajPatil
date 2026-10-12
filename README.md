@@ -23,9 +23,6 @@ Personal portfolio of Raj Patil, Full-Stack Developer at **Onomatrix Labs Privat
 
 ## Work
 
-### Flamezo | Onomatrix Labs ([live](https://flamezo.in))
-Two-sided local-business platform: outlet discovery, offers, bill payments, table bookings, a cross-outlet loyalty wallet, and a merchant dashboard with AI menu tools. Worked across the Frappe backend, React merchant dashboard, Next.js web app and Flutter app.
-
 ### Studio Viana ([live](https://studioviana.work.gd/) · [code](https://github.com/Raj-128/Viana))
 Portfolio and ordering site for a 3D and wallpaper studio: instant price estimates, Google sign-in, MFA admin, protected catalogue and print-request flow. Vite, Node.js, SQLite, GSAP.
 
