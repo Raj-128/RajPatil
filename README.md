@@ -38,6 +38,9 @@ Food ordering platform: menu search, cart, wishlist, addresses, order history an
 ### RajMind ([live demo](https://rajmind.onrender.com) · [code](https://github.com/Raj-128/RajMind))
 Multi-tenant AI knowledge assistant: workspaces with RBAC, background document processing, and answers cited to the source. Django, PostgreSQL, Celery, Docker.
 
+### Open source: dlt-error-codes ([npm](https://www.npmjs.com/package/dlt-error-codes) · [code](https://github.com/Raj-128/dlt-error-codes))
+Plain-English explanations and fixes for Indian DLT SMS error codes, each citing its source. Zero dependencies, tested in CI.
+
 ---
 
 ## Site Features
@@ -46,7 +49,7 @@ Multi-tenant AI knowledge assistant: workspaces with RBAC, background document p
 - Word-by-word hero title, directional and staggered scroll reveals, portrait parallax
 - Minimal header (name + theme toggle) on the opening screen; full sticky navbar once the intro arrives
 - Scroll progress bar, 3D tilt on project cards
-- Custom cursor (exact point + smooth trailing ring) replacing the system cursor on mouse devices
+- Ring-and-dot cursor drawn as the native OS cursor (no lag, never splits); WebGL globe pauses when off screen
 - Respects `prefers-reduced-motion`
 - Scrollspy navigation
 - Resume generated from [resume.html](resume.html)

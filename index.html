@@ -37,8 +37,6 @@
 
   <body>
     <div class="page-grid" aria-hidden="true"></div>
-    <div class="cursor-dot" aria-hidden="true"></div>
-    <div class="cursor-point" aria-hidden="true"></div>
     <div class="scroll-progress" aria-hidden="true"></div>
 
     <header class="site-header header-cover" id="site-header">
@@ -226,6 +224,18 @@
               </div>
             </article>
           </div>
+
+          <article class="oss-strip reveal">
+            <em class="status live">Open source</em>
+            <div>
+              <h3><code>dlt-error-codes</code> <span>npm package</span></h3>
+              <p>Plain-English explanations and fixes for Indian DLT SMS error codes, each citing its source. Zero dependencies, tested in CI.</p>
+            </div>
+            <div class="build-links">
+              <a href="https://www.npmjs.com/package/dlt-error-codes" target="_blank" rel="noopener noreferrer">npm <i class="ri-arrow-right-up-line"></i></a>
+              <a href="https://github.com/Raj-128/dlt-error-codes" target="_blank" rel="noopener noreferrer">GitHub <i class="ri-github-line"></i></a>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -367,7 +377,6 @@
       const navClose = document.getElementById("nav-close");
       const navLinks = document.querySelectorAll(".nav-link");
       const themeToggle = document.getElementById("theme-toggle");
-      const cursorDot = document.querySelector(".cursor-dot");
 
       navToggle.addEventListener("click", () => navPanel.classList.add("show-menu"));
       navClose.addEventListener("click", () => navPanel.classList.remove("show-menu"));
@@ -389,26 +398,6 @@
         localStorage.theme = light ? "light" : "dark";
       });
 
-      // Point tracks the mouse exactly; ring eases after it every frame for a smooth trail.
-      const cursorPoint = document.querySelector(".cursor-point");
-      let mouseX = -100, mouseY = -100, ringX = -100, ringY = -100, lastFrame = performance.now();
-      window.addEventListener("mousemove", (event) => {
-        mouseX = event.clientX;
-        mouseY = event.clientY;
-        cursorPoint.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-      });
-      (function followCursor(now = performance.now()) {
-        // Same feel at 60Hz or 144Hz: ease amount scales with frame time.
-        const ease = 1 - Math.pow(0.6, (now - lastFrame) / 16.7);
-        lastFrame = now;
-        ringX += (mouseX - ringX) * ease;
-        ringY += (mouseY - ringY) * ease;
-        cursorDot.style.transform = `translate3d(${ringX}px, ${ringY}px, 0)`;
-        requestAnimationFrame(followCursor);
-      })();
-      document.addEventListener("mouseover", (event) => {
-        cursorDot.classList.toggle("cursor-hover", !!event.target.closest("a, button"));
-      });
 
       const sections = document.querySelectorAll("section[id]");
       const header = document.getElementById("site-header");
@@ -536,7 +525,7 @@
         });
       }
 
-      createGlobe(canvas, {
+      const globeOptions = {
         devicePixelRatio: 2,
         width: 1200,
         height: 1200,
@@ -563,7 +552,17 @@
           state.glowColor = light ? [0.95, 0.75, 0.55] : [0.45, 0.25, 0.85];
           state.baseColor = light ? [1, 0.96, 0.9] : [0.25, 0.25, 0.35];
         },
-      });
+      };
+
+      // Only render the WebGL globe while its section is on screen.
+      let globe = null;
+      new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting && !globe) globe = createGlobe(canvas, globeOptions);
+        else if (!entry.isIntersecting && globe) {
+          globe.destroy();
+          globe = null;
+        }
+      }).observe(section);
 
       measure();
       addEventListener("scroll", measure, { passive: true });

@@ -103,51 +103,17 @@ body.light-theme .page-grid {
     linear-gradient(90deg, rgba(30, 41, 59, 0.055) 1px, transparent 1px);
 }
 
-.cursor-dot {
-  position: fixed;
-  top: -10px;
-  left: -10px;
-  z-index: 9999;
-  width: 20px;
-  height: 20px;
-  border: 1px solid rgba(34, 211, 238, 0.7);
-  border-radius: 50%;
-  pointer-events: none;
-  transition: scale 0.25s ease, background 0.25s;
-  will-change: transform;
+/* Ring-and-dot cursor drawn by the OS itself: it can't lag behind the mouse or split apart. */
+html,
+html * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%2322d3ee' stroke-width='1.5'/%3E%3Ccircle cx='16' cy='16' r='2.5' fill='%2322d3ee'/%3E%3C/svg%3E") 16 16, auto !important;
 }
 
-.cursor-dot.cursor-hover {
-  scale: 1.9;
-  background: rgba(34, 211, 238, 0.15);
-}
-
-.cursor-point {
-  position: fixed;
-  top: -3px;
-  left: -3px;
-  z-index: 10000;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent-two);
-  pointer-events: none;
-  will-change: transform;
-}
-
-/* Custom cursor replaces the system one on mouse devices only. */
-@media (hover: hover) and (pointer: fine) {
-  html,
-  html * {
-    cursor: none !important;
-  }
-}
-
-@media not all and (pointer: fine) {
-  .cursor-dot,
-  .cursor-point {
-    display: none;
-  }
+html a,
+html a *,
+html button,
+html button * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Ccircle cx='20' cy='20' r='17' fill='%2322d3ee' fill-opacity='0.18' stroke='%2322d3ee' stroke-width='1.5'/%3E%3Ccircle cx='20' cy='20' r='2.5' fill='%2322d3ee'/%3E%3C/svg%3E") 20 20, pointer !important;
 }
 
 .site-header {
@@ -529,6 +495,47 @@ body.light-theme .header-blur {
 
 .build-card.featured img {
   aspect-ratio: 16 / 8;
+}
+
+.oss-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem 1.6rem;
+  margin-top: 1rem;
+  padding: 1.1rem 1.45rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(20px);
+}
+
+.oss-strip .status {
+  margin: 0;
+}
+
+.oss-strip > div:first-of-type {
+  flex: 1 1 320px;
+}
+
+.oss-strip h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.15rem;
+}
+
+.oss-strip h3 span {
+  color: var(--accent-two);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.oss-strip p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
 }
 
 .work-note {
@@ -1211,7 +1218,4 @@ body.light-theme .intro {
     overflow-wrap: anywhere;
   }
 
-  .cursor-dot {
-    display: none;
-  }
 }
