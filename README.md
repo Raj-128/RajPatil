@@ -4,7 +4,7 @@
 ![Stack](https://img.shields.io/badge/Stack-Python%20%7C%20Django%20%7C%20Next.js-green?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Live-success?style=for-the-badge)
 
-Personal portfolio of Raj Patil, Full-Stack Developer at **Onomatrix Labs Private Limited**. It showcases company work, client websites, and personal backend and AI projects.
+Personal portfolio of Raj Patil, Full-Stack Developer. It showcases client websites, live demos and open-source work.
 
 [**Explore Live Site →**](https://raj-128.github.io/RajPatil/) · [**Resume (PDF)**](Raj_Patil_Full_Stack_Developer_Resume.pdf)
 
