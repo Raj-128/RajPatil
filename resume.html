@@ -6,8 +6,8 @@
     <meta charset="UTF-8" />
     <title>Raj Patil | Resume</title>
     <style>
-      @page { size: A4; margin: 14mm 16mm; }
-      body { margin: 0; color: #000; font: 10.5pt/1.38 "Times New Roman", serif; }
+      @page { size: A4; margin: 11mm 15mm; }
+      body { margin: 0; color: #000; font: 10.2pt/1.32 "Times New Roman", serif; }
       a { color: inherit; text-decoration: none; }
       h1, h2, h3, .head strong { font-family: Calibri, "Segoe UI", sans-serif; }
       header { text-align: center; margin-bottom: 10pt; }
@@ -15,9 +15,9 @@
       h1 + em { margin-left: 8pt; font-size: 15pt; }
       .contact { margin-top: 4pt; }
       .contact span { margin: 0 5pt; }
-      h2 { margin: 12pt 0 6pt; padding: 2pt 0; border-block: 1px solid #000; text-align: center; font-size: 11.5pt; letter-spacing: 0.08em; }
+      h2 { margin: 9pt 0 5pt; padding: 2pt 0; border-block: 1px solid #000; text-align: center; font-size: 11.5pt; letter-spacing: 0.08em; }
       p { margin: 0; text-align: justify; }
-      .item { margin-bottom: 8pt; break-inside: avoid; }
+      .item { margin-bottom: 6pt; break-inside: avoid; }
       .head { display: flex; justify-content: space-between; gap: 12pt; }
       .head a { text-decoration: underline; }
       .sub { font-style: italic; }
@@ -78,11 +78,20 @@
       </ul>
     </div>
     <div class="item">
-      <div class="head"><span><strong>Chamomile Media</strong> · <span class="sub">Agency Website</span></span><span><a href="https://github.com/Raj-128/chamomile-media">GitHub</a></span></div>
+      <div class="head"><span><strong>Chamomile Media</strong> · <span class="sub">Agency Website (In Progress)</span></span><span><a href="https://github.com/Raj-128/chamomile-media">GitHub</a></span></div>
       <div>Tech Stack: HTML, CSS, JavaScript, Netlify Forms, Google Apps Script</div>
       <ul>
         <li>Built a digital marketing agency website with services, client work and testimonials.</li>
         <li>Handled enquiries with Netlify Forms and an optional Google Apps Script backend writing leads to Google Sheets.</li>
+      </ul>
+    </div>
+    <div class="item">
+      <div class="head"><span><strong>RajMind</strong> · <span class="sub">Enterprise AI Knowledge Assistant</span></span><span><a href="https://rajmind.onrender.com">Live Demo</a></span></div>
+      <div>Tech Stack: Django, DRF, PostgreSQL, Celery, Redis, Docker, Gemini / Groq</div>
+      <ul>
+        <li>Built a multi-tenant knowledge platform with isolated workspaces and Owner / Admin / Member / Viewer role-based access.</li>
+        <li>Processed PDF, DOCX and TXT uploads asynchronously (extraction, chunking, embeddings) with Celery workers.</li>
+        <li>Implemented RAG answers with citations to the source documents, plus conversation history and usage analytics.</li>
       </ul>
     </div>
     <div class="item">

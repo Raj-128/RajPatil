@@ -115,7 +115,6 @@ body.light-theme .page-grid {
   pointer-events: none;
   transition: scale 0.25s ease, background 0.25s;
   will-change: transform;
-  mix-blend-mode: difference;
 }
 
 .cursor-dot.cursor-hover {
@@ -505,62 +504,11 @@ body.light-theme .header-blur {
   letter-spacing: -0.06em;
 }
 
-.work-layout {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 1.3rem;
-}
-
-.work-feature,
-.work-item {
-  cursor: pointer;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(20px);
-  transition: transform 0.25s, border-color 0.25s;
-}
-
-.work-feature:hover,
-.work-item:hover,
 .capability-card:hover {
   transform: translateY(-6px);
   border-color: rgba(34, 211, 238, 0.52);
 }
 
-.work-feature {
-  overflow: hidden;
-  border-radius: var(--radius);
-}
-
-.work-feature img {
-  width: 100%;
-  aspect-ratio: 16 / 11;
-  object-fit: cover;
-}
-
-.work-feature-content {
-  padding: 1.5rem;
-}
-
-.work-feature-content span,
-.work-item span,
-#modal-stack {
-  color: var(--accent-two);
-  font-size: 0.76rem;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.work-feature h3,
-.work-item h3 {
-  margin: 0.55rem 0;
-  font-size: 1.7rem;
-}
-
-.work-feature p,
-.work-item p,
 .capability-card p,
 .profile-story p,
 .timeline p,
@@ -569,50 +517,44 @@ body.light-theme .header-blur {
   line-height: 1.75;
 }
 
-.text-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  margin-top: 1rem;
-  color: var(--text);
-  background: transparent;
-  font-weight: 900;
-}
-
-.work-list {
-  display: grid;
-  gap: 1rem;
-}
-
-.work-item {
-  display: grid;
-  grid-template-columns: 132px 1fr;
-  gap: 1rem;
-  align-items: center;
-  padding: 0.75rem;
-  border-radius: 1.4rem;
-}
-
-.work-item img {
-  width: 132px;
-  height: 118px;
-  object-fit: cover;
-  border-radius: 1rem;
-}
-
-.work-item h3,
-.work-item p {
-  margin: 0.35rem 0 0;
-}
-
-.build-heading {
-  margin-top: 5rem;
-}
-
 .build-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
+}
+
+.build-card.featured {
+  grid-column: span 2;
+}
+
+.build-card.featured img {
+  aspect-ratio: 16 / 8;
+}
+
+.work-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 1024px) {
+  .build-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .build-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .build-card.featured {
+    grid-column: auto;
+  }
+
+  .build-card.featured img {
+    aspect-ratio: 16 / 10;
+  }
 }
 
 .build-card {
@@ -876,76 +818,6 @@ body.light-theme .header-blur {
   border-radius: 50%;
   color: var(--text);
   background: var(--surface);
-}
-
-.project-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 300;
-  display: grid;
-  place-items: center;
-  padding: 1rem;
-  background: rgba(8, 9, 20, 0.76);
-  opacity: 0;
-  visibility: hidden;
-  backdrop-filter: blur(18px);
-  transition: opacity 0.25s, visibility 0.25s;
-}
-
-.show-modal {
-  opacity: 1;
-  visibility: visible;
-}
-
-.modal-card {
-  position: relative;
-  width: min(100%, 620px);
-  max-height: 88vh;
-  overflow: auto;
-  padding: 1rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--bg);
-  box-shadow: var(--shadow);
-}
-
-.modal-close {
-  position: absolute;
-  top: 1.2rem;
-  right: 1.2rem;
-  display: grid;
-  place-items: center;
-  width: 2.7rem;
-  height: 2.7rem;
-  border-radius: 50%;
-  color: var(--text);
-  background: rgba(8, 9, 20, 0.74);
-  font-size: 1.3rem;
-}
-
-#modal-img {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  margin-bottom: 1.4rem;
-  border-radius: calc(var(--radius) - 0.7rem);
-}
-
-.modal-card h3 {
-  margin: 0.55rem 0 0.8rem;
-  font-size: 1.7rem;
-}
-
-.modal-card p {
-  color: var(--muted);
-  line-height: 1.8;
-}
-
-.modal-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 1.3rem;
 }
 
 .reveal {
@@ -1249,7 +1121,6 @@ body.light-theme .intro {
     writing-mode: initial;
   }
 
-  .work-layout,
   .contact-container {
     grid-template-columns: 1fr;
   }
@@ -1334,16 +1205,6 @@ body.light-theme .intro {
   .intro-metrics,
   .capability-grid {
     grid-template-columns: 1fr;
-  }
-
-  .work-item {
-    grid-template-columns: 1fr;
-  }
-
-  .work-item img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 10;
   }
 
   .mail-link {

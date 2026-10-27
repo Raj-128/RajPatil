@@ -17,29 +17,26 @@ Personal portfolio of Raj Patil, Full-Stack Developer at **Onomatrix Labs Privat
 | **Frontend & Mobile** | JavaScript, TypeScript, React, Next.js, Flutter |
 | **Data** | PostgreSQL, MySQL, SQLite, SQL Server |
 | **AI** | RAG, LLM APIs, FAISS |
-| **Tools** | Git, GitHub, Docker, Postman |
+| **Tools** | Git, GitHub, Docker, Celery, Redis, Postman |
 
 ---
 
 ## Work
 
-### Studio Viana ([live](https://studioviana.work.gd/) · [code](https://github.com/Raj-128/Viana))
-Portfolio and ordering site for a 3D and wallpaper studio: instant price estimates, Google sign-in, MFA admin, protected catalogue and print-request flow. Vite, Node.js, SQLite, GSAP.
+### Studio Viana — live client site ([live](https://studioviana.work.gd/) · [code](https://github.com/Raj-128/Viana))
+Portfolio and ordering site for a 3D and wallpaper studio: 3D wallpaper corridor, instant price estimates, Google sign-in, MFA admin, protected catalogue and print-request flow. Vite, Node.js, SQLite, GSAP.
 
-### Chamomile Media ([code](https://github.com/Raj-128/chamomile-media))
-Digital marketing agency website with Netlify Forms enquiries and an optional Google Apps Script backend writing leads to Google Sheets.
+### Chamomile Media — in progress ([code](https://github.com/Raj-128/chamomile-media))
+Digital marketing agency website: 3D gallery tunnel, client carousel, services and work pages, and an enquiry flow writing leads to Google Sheets.
 
-### DocuMind ([live](https://documind-zgo1.onrender.com/) · [code](https://github.com/Raj-128/DocuMind))
-RAG chatbot built with Django that lets users chat with uploaded documents using context-aware answers.
+### DocuMind ([live demo](https://documind-zgo1.onrender.com/) · [code](https://github.com/Raj-128/DocuMind))
+RAG chatbot: upload a PDF, ask questions, get context-aware answers, summaries and key points. Django, FAISS, LangChain, Groq.
 
-### Eatify ([live](https://eatify-eyn1.onrender.com/) · [code](https://github.com/Raj-128/Eatify))
-Food ordering backend with Django REST Framework: cart, order lifecycle, JWT auth and Cashfree checkout.
+### Eatify ([live demo](https://eatify-eyn1.onrender.com/) · [code](https://github.com/Raj-128/Eatify))
+Food ordering platform: menu search, cart, wishlist, addresses, order history and Cashfree payments. Django, SQLite.
 
-### Smart Stick
-IoT navigation device for visually impaired users using Python and Raspberry Pi for obstacle detection and voice alerts.
-
-### Complaint Management System
-Role-based grievance tracking dashboard in ASP.NET / C# with admin, agent and user workflows.
+### RajMind ([live demo](https://rajmind.onrender.com) · [code](https://github.com/Raj-128/RajMind))
+Multi-tenant AI knowledge assistant: workspaces with RBAC, background document processing, and answers cited to the source. Django, PostgreSQL, Celery, Docker.
 
 ---
 
@@ -52,7 +49,6 @@ Role-based grievance tracking dashboard in ASP.NET / C# with admin, agent and us
 - Custom cursor (exact point + smooth trailing ring) replacing the system cursor on mouse devices
 - Respects `prefers-reduced-motion`
 - Scrollspy navigation
-- Project modal with live demo and GitHub links
 - Resume generated from [resume.html](resume.html)
 
 ---
