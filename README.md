@@ -27,7 +27,7 @@ Personal portfolio of Raj Patil, Full-Stack Developer. It showcases client websi
 Portfolio and ordering site for a 3D and wallpaper studio: 3D wallpaper corridor, instant price estimates, Google sign-in, MFA admin, protected catalogue and print-request flow. Vite, Node.js, SQLite, GSAP.
 
 ### Chamomile Media — in progress ([code](https://github.com/Raj-128/chamomile-media))
-Digital marketing agency website: 3D gallery tunnel, client carousel, services and work pages, and an enquiry flow writing leads to Google Sheets.
+Digital marketing agency website: hero photo carousel from real shoots, playable video formats, client logo wall, and an enquiry flow writing leads to Google Sheets.
 
 ### DocuMind ([live demo](https://documind-zgo1.onrender.com/) · [code](https://github.com/Raj-128/DocuMind))
 RAG chatbot: upload a PDF, ask questions, get context-aware answers, summaries and key points. Django, FAISS, LangChain, Groq.
