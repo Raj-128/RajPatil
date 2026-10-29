@@ -26,7 +26,7 @@ Personal portfolio of Raj Patil, Full-Stack Developer. It showcases client websi
 ### Studio Viana — live client site ([live](https://studioviana.work.gd/) · [code](https://github.com/Raj-128/Viana))
 Portfolio and ordering site for a 3D and wallpaper studio: 3D wallpaper corridor, instant price estimates, Google sign-in, MFA admin, protected catalogue and print-request flow. Vite, Node.js, SQLite, GSAP.
 
-### Chamomile Media — in progress ([live](https://raj-128.github.io/chamomile-media/) · [code](https://github.com/Raj-128/chamomile-media))
+### Chamomile Media — in progress ([live](https://chamomilemedia.netlify.app/) · [code](https://github.com/Raj-128/chamomile-media))
 Digital marketing agency website: hero photo carousel from real shoots, playable video formats, client logo wall, and an enquiry flow writing leads to Google Sheets.
 
 ### DocuMind ([live demo](https://documind-zgo1.onrender.com/) · [code](https://github.com/Raj-128/DocuMind))
