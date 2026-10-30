@@ -92,7 +92,7 @@
         <li>Built a multi-tenant knowledge platform with isolated workspaces and Owner / Admin / Member / Viewer role-based access.</li>
         <li>Processed PDF, DOCX and TXT uploads asynchronously (extraction, chunking, embeddings) in the background (Celery workers or an in-process thread).</li>
         <li>Implemented RAG answers grounded only in uploaded documents, citing the exact source passages, with follow-up-aware multi-turn chats and usage analytics.</li>
-        <li>Added multi-key failover across Gemini and Groq so answers keep working when an API key hits its rate limit.</li>
+        <li>Routed answers through Groq first for low latency, with multi-key failover to Gemini so answers keep working when a key hits its rate limit.</li>
       </ul>
     </div>
     <div class="item">

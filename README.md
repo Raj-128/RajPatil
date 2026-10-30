@@ -36,7 +36,7 @@ RAG chatbot: upload a PDF, ask questions, get context-aware answers, summaries a
 Food ordering platform: menu search, cart, wishlist, addresses, order history and Cashfree payments. Django, SQLite.
 
 ### RajMind ([live demo](https://rajmind.onrender.com) · [code](https://github.com/Raj-128/RajMind))
-AI assistant that answers questions from a company's own documents (PDF, DOCX, TXT), citing the exact source passage for every answer. Team workspaces with role-based access, multi-turn chats, automatic Gemini/Groq key failover, mobile-friendly UI. Django, PostgreSQL, Gemini RAG, Docker.
+AI assistant that answers questions from a company's own documents (PDF, DOCX, TXT), citing the exact source passage for every answer. Team workspaces with role-based access, multi-turn chats, fast Groq answers with automatic Gemini failover, mobile-friendly UI. Django, PostgreSQL, Gemini RAG, Docker.
 
 ### Open source: dlt-error-codes ([npm](https://www.npmjs.com/package/dlt-error-codes) · [code](https://github.com/Raj-128/dlt-error-codes))
 Plain-English explanations and fixes for Indian DLT SMS error codes, each citing its source. Zero dependencies, tested in CI.
