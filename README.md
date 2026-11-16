@@ -1,4 +1,4 @@
-# Raj Patil | Full-Stack Developer
+# Raj Patil | Software Engineer
 ### Python · Django · Frappe · Next.js · Flutter · AI
 
 ![Stack](https://img.shields.io/badge/Stack-Python%20%7C%20Django%20%7C%20Next.js-green?style=for-the-badge)
