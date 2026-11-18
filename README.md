@@ -23,7 +23,7 @@ Personal portfolio of Raj Patil, Software Engineer at **Onomatrix Labs Private L
 
 ## Work
 
-### Studio Viana — live client site ([live](https://studioviana.work.gd/) · [code](https://github.com/Raj-128/Viana))
+### Studio Viana — live client site ([live](https://studioviana.in/) · [code](https://github.com/Raj-128/Viana))
 Portfolio and ordering site for a 3D and wallpaper studio: 3D wallpaper corridor, instant price estimates, Google sign-in, MFA admin, protected catalogue and print-request flow. Vite, Node.js, SQLite, GSAP.
 
 ### Chamomile Media — in progress ([live](https://chamomilemedia.netlify.app/) · [code](https://github.com/Raj-128/chamomile-media))
